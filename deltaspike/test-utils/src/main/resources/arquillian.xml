@@ -1,0 +1,97 @@
+<!--
+  ~ Licensed to the Apache Software Foundation (ASF) under one
+  ~ or more contributor license agreements. See the NOTICE file
+  ~ distributed with this work for additional information
+  ~ regarding copyright ownership. The ASF licenses this file
+  ~ to you under the Apache License, Version 2.0 (the
+  ~ "License"); you may not use this file except in compliance
+  ~ with the License. You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<arquillian xmlns="http://jboss.org/schema/arquillian" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+    <!--Uncomment to have test archives exported to the file system for inspection -->
+    <!--
+    <engine>
+        <property name="deploymentExportPath">target/</property>
+    </engine>
+    -->
+
+    <!-- don't remove the qualifier - it's needed for the arquillian.launch property -->
+    <container qualifier="glassfish-remote-3.1">
+    </container>
+
+    <container qualifier="wls-remote-12c">
+        <configuration>
+            <property name="adminUrl">t3://localhost:7001</property>
+            <property name="adminUserName">weblogic1</property>
+            <property name="adminPassword">weblogic1</property>
+            <property name="target">AdminServer</property>
+            <property name="wlsHome">${WLS_HOME}</property>
+        </configuration>
+    </container>
+
+    <container qualifier="wls-managed-12c">
+        <configuration>
+            <property name="middlewareHome">${MW_HOME}</property>
+            <property name="wlHome">${MW_HOME}/wlserver</property>
+            <property name="domainDirectory">${DS_DOMAIN_DIR}</property>
+            <property name="target">${DS_DOMAIN_TARGET}</property>
+            <property name="adminUrl">${DS_ADMIN_URL}</property>
+            <property name="adminUserName">${DS_ADMIN_USER}</property>
+            <property name="adminPassword">${DS_ADMIN_PSWD}</property>
+            <!-- for debugging uncomment: -->
+            <!--<property name="jvmOptions">-XX:MaxPermSize=256m -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005</property>-->
+            <property name="timeout">600</property>
+        </configuration>
+    </container>
+
+    <container qualifier="tomee">
+        <configuration>
+            <!-- tomee gets copied to this directory during the build -->
+            <property name="dir">target/tomee</property>
+
+            <!-- value '-1' to allow arquillian-tomee-remote to use dynamic settings -->
+            <property name="httpPort">-1</property>
+            <property name="ajpPort">-1</property>
+            <property name="stopPort">-1</property>
+            <property name="appWorkingDir">target/arquillian-test-working-dir</property>
+            <property name="catalina_opts">-Dcdicontainer.version=tomee-${tomee.version}</property>
+            <property name="simpleLog">true</property>
+            
+            <!-- In-Memory database for the data module -->
+            <property name="properties">
+                testDatabase = new://Resource?type=DataSource
+                testDatabase.JdbcDriver = org.hsqldb.jdbcDriver
+                testDatabase.JdbcUrl = jdbc:hsqldb:mem:testdb
+                testDatabase.JtaManaged = true
+            </property>
+
+        </configuration>
+    </container>
+
+    <container qualifier="glassfish-build-managed-3">
+        <configuration>
+            <property name="glassFishHome">${arquillian.glassfish3_home}</property>
+            <property name="adminPort">34848</property>
+        </configuration>
+    </container>
+
+    <container qualifier="glassfish-build-managed-4">
+        <configuration>
+            <property name="glassFishHome">${arquillian.glassfish4_home}</property>
+            <property name="adminPort">24848</property>
+        </configuration>
+    </container>
+
+</arquillian>

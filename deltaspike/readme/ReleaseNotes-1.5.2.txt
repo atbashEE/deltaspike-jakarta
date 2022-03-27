@@ -1,0 +1,38 @@
+Release Notes - Apache DeltaSpike - Version 1.5.2
+
+Bug
+
+    [DELTASPIKE-839] - Data module test deployments pack individual classes instead of JARs
+    [DELTASPIKE-1009] - unknown repository class
+    [DELTASPIKE-1014] - SecuredAnnotationAuthorizer overwrites method-level annotation metadata with class-level annotation metadata
+    [DELTASPIKE-1016] - JSF documentation broken
+    [DELTASPIKE-1024] - WindowHandler: Loading... not displayed in initial request in new tab
+    [DELTASPIKE-1026] - WindowHandler: Loading... not displayed in IE8
+    [DELTASPIKE-1027] - WindowHandler: "screenshot" still clickable in IE8
+    [DELTASPIKE-1028] - WindowHandler: JS error on IE8
+    [DELTASPIKE-1034] - DefaultEntityManagerHolder is not Serializeable
+
+Improvement
+
+    [DELTASPIKE-989] - Document ClientWindow modes more detailed
+    [DELTASPIKE-1015] - Support hierarchical BeanManager and Extensions
+    [DELTASPIKE-1017] - spi for config-validation
+    [DELTASPIKE-1019] - Enterprise container friendlier deltaspike-cdictrl-weld
+    [DELTASPIKE-1021] - Enhance documentation for JSF module
+    [DELTASPIKE-1025] - WindowHandler: Remember every body attr for the windowhandler.html
+    [DELTASPIKE-1029] - WindowHandler: Avoid windowhandler streaming in some redirect cases
+    [DELTASPIKE-1031] - Update profiles for Wildfly
+
+New Feature
+
+    [DELTASPIKE-1023] - WindowHandling: refactor screenshot handling/remember scroll position
+    [DELTASPIKE-1035] - Make DS PersistenceUnit public and also parse properties
+
+Task
+
+    [DELTASPIKE-982] - improve internal description of our release-steps
+    [DELTASPIKE-1011] - re-visit excluded tests for the wls profiles
+    [DELTASPIKE-1012] - update site and javadoc to 1.5.1
+    [DELTASPIKE-1013] - remove outdated content
+    [DELTASPIKE-1020] - improve core documentation
+    [DELTASPIKE-1038] - prepare v1.5.2

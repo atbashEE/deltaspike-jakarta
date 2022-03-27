@@ -1,0 +1,55 @@
+<!--
+  ~ Licensed to the Apache Software Foundation (ASF) under one
+  ~ or more contributor license agreements. See the NOTICE file
+  ~ distributed with this work for additional information
+  ~ regarding copyright ownership. The ASF licenses this file
+  ~ to you under the Apache License, Version 2.0 (the
+  ~ "License"); you may not use this file except in compliance
+  ~ with the License. You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+
+    <name>apache_deltaspike</name>
+
+    <lifecycle>
+        <phase-listener>org.apache.deltaspike.jsf.impl.listener.phase.DeltaSpikePhaseListener</phase-listener>
+    </lifecycle>
+
+    <application>
+        <view-handler>org.apache.deltaspike.jsf.impl.view.DeltaSpikeViewHandler</view-handler>
+        <action-listener>org.apache.deltaspike.jsf.impl.listener.action.DeltaSpikeActionListener</action-listener>
+        <resource-handler>org.apache.deltaspike.jsf.impl.resource.DeltaSpikeResourceHandler</resource-handler>
+
+        <system-event-listener>
+            <system-event-listener-class>org.apache.deltaspike.jsf.impl.listener.system.JsfSystemEventBroadcaster</system-event-listener-class>
+            <system-event-class>javax.faces.event.ExceptionQueuedEvent</system-event-class>
+        </system-event-listener>
+        <system-event-listener>
+            <system-event-listener-class>org.apache.deltaspike.jsf.impl.listener.system.JsfSystemEventBroadcaster</system-event-listener-class>
+            <system-event-class>javax.faces.event.PostConstructApplicationEvent</system-event-class>
+        </system-event-listener>
+        <system-event-listener>
+            <system-event-listener-class>org.apache.deltaspike.jsf.impl.listener.system.JsfSystemEventBroadcaster</system-event-listener-class>
+            <system-event-class>javax.faces.event.PreDestroyApplicationEvent</system-event-class>
+        </system-event-listener>
+    </application>
+
+    <factory>
+        <lifecycle-factory>org.apache.deltaspike.jsf.impl.listener.request.DeltaSpikeLifecycleFactoryWrapper</lifecycle-factory>
+        <faces-context-factory>org.apache.deltaspike.jsf.impl.listener.request.DeltaSpikeFacesContextFactory</faces-context-factory>
+    </factory>
+
+</faces-config>
