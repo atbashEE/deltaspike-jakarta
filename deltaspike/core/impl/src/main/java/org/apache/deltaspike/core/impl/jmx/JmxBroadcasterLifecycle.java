@@ -21,8 +21,8 @@ package org.apache.deltaspike.core.impl.jmx;
 import org.apache.deltaspike.core.api.jmx.JmxBroadcaster;
 import org.apache.deltaspike.core.util.metadata.builder.ContextualLifecycle;
 
-import javax.enterprise.context.spi.CreationalContext;
-import javax.enterprise.inject.spi.Bean;
+import jakarta.enterprise.context.spi.CreationalContext;
+import jakarta.enterprise.inject.spi.Bean;
 
 public class JmxBroadcasterLifecycle implements ContextualLifecycle<JmxBroadcaster>
 {

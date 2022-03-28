@@ -18,8 +18,8 @@
  */
 package org.apache.deltaspike.servlet.impl.produce;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
 
 /**
  * Utility class which is used to bind the {@link ServletRequest} and {@link ServletResponse} to the current thread.

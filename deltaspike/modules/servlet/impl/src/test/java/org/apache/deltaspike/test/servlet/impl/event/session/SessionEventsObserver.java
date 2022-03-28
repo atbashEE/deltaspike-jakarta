@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import javax.servlet.http.HttpSession;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.Observes;
+import jakarta.servlet.http.HttpSession;
 
 import org.apache.deltaspike.core.api.lifecycle.Destroyed;
 import org.apache.deltaspike.core.api.lifecycle.Initialized;

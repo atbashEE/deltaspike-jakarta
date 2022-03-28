@@ -44,15 +44,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <version>1.2</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -60,12 +53,6 @@
             <groupId>be.atbash.jakarta.deltaspike.core</groupId>
             <artifactId>deltaspike-core-api</artifactId>
         </dependency>
-
-        <!--dependency>
-            <groupId>be.atbash.jakarta.deltaspike.cdictrl</groupId>
-            <artifactId>deltaspike-cdictrl-api</artifactId>
-            <scope>provided</scope>
-        </dependency-->
 
         <dependency>
             <groupId>junit</groupId>

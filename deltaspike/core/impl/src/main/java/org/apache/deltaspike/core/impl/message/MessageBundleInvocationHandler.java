@@ -18,9 +18,9 @@
  */
 package org.apache.deltaspike.core.impl.message;
 
-import javax.enterprise.context.Dependent;
-import javax.enterprise.inject.Typed;
-import javax.inject.Inject;
+import jakarta.enterprise.context.Dependent;
+import jakarta.enterprise.inject.Typed;
+import jakarta.inject.Inject;
 import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

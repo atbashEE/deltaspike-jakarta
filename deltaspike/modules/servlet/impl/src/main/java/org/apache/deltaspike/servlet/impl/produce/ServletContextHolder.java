@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.logging.Logger;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import org.apache.deltaspike.core.util.ClassUtils;
 

@@ -21,13 +21,13 @@ package org.apache.deltaspike.testcontrol.impl.mock;
 import org.apache.deltaspike.testcontrol.api.junit.TestBaseConfig;
 import org.apache.deltaspike.testcontrol.spi.mock.MockFilter;
 
-import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.Annotated;
-import javax.enterprise.inject.spi.AnnotatedField;
-import javax.enterprise.inject.spi.AnnotatedMember;
-import javax.enterprise.inject.spi.AnnotatedMethod;
-import javax.enterprise.inject.spi.AnnotatedType;
-import javax.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.Produces;
+import jakarta.enterprise.inject.spi.Annotated;
+import jakarta.enterprise.inject.spi.AnnotatedField;
+import jakarta.enterprise.inject.spi.AnnotatedMember;
+import jakarta.enterprise.inject.spi.AnnotatedMethod;
+import jakarta.enterprise.inject.spi.AnnotatedType;
+import jakarta.enterprise.inject.spi.BeanManager;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Member;
 import java.util.HashSet;
@@ -61,7 +61,7 @@ public class DefaultMockFilter implements MockFilter
             annotations.addAll(annotated.getAnnotations());
 
             for (AnnotatedMethod annotatedMethod :
-                (Set<javax.enterprise.inject.spi.AnnotatedMethod>)((AnnotatedType) annotated).getMethods())
+                (Set<jakarta.enterprise.inject.spi.AnnotatedMethod>)((AnnotatedType) annotated).getMethods())
             {
                 annotations.addAll(annotatedMethod.getAnnotations());
             }

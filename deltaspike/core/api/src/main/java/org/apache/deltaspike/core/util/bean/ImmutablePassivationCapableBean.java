@@ -21,8 +21,8 @@ package org.apache.deltaspike.core.util.bean;
 
 import org.apache.deltaspike.core.util.metadata.builder.ContextualLifecycle;
 
-import javax.enterprise.inject.spi.InjectionPoint;
-import javax.enterprise.inject.spi.PassivationCapable;
+import jakarta.enterprise.inject.spi.InjectionPoint;
+import jakarta.enterprise.inject.spi.PassivationCapable;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.Set;

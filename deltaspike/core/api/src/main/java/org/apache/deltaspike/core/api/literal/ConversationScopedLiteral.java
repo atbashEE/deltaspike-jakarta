@@ -18,8 +18,8 @@
  */
 package org.apache.deltaspike.core.api.literal;
 
-import javax.enterprise.context.ConversationScoped;
-import javax.enterprise.util.AnnotationLiteral;
+import jakarta.enterprise.context.ConversationScoped;
+import jakarta.enterprise.util.AnnotationLiteral;
 
 /**
  * Literal for {@link ConversationScoped}

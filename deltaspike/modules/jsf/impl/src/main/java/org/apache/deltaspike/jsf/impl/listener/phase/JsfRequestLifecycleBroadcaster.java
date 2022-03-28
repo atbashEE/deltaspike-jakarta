@@ -26,13 +26,13 @@ import org.apache.deltaspike.jsf.api.listener.phase.BeforePhase;
 import org.apache.deltaspike.jsf.api.listener.phase.JsfPhaseId;
 import org.apache.deltaspike.jsf.api.listener.phase.JsfPhaseListener;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Event;
-import javax.enterprise.inject.Instance;
-import javax.faces.event.PhaseEvent;
-import javax.faces.event.PhaseId;
-import javax.faces.event.PhaseListener;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.Event;
+import jakarta.enterprise.inject.Instance;
+import jakarta.faces.event.PhaseEvent;
+import jakarta.faces.event.PhaseId;
+import jakarta.faces.event.PhaseListener;
+import jakarta.inject.Inject;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -143,7 +143,7 @@ public class JsfRequestLifecycleBroadcaster
         }
     }
 
-    protected Annotation createAnnotationLiteral(javax.faces.event.PhaseId phaseId, boolean isBeforeEvent)
+    protected Annotation createAnnotationLiteral(jakarta.faces.event.PhaseId phaseId, boolean isBeforeEvent)
     {
         if (isBeforeEvent)
         {
@@ -152,7 +152,7 @@ public class JsfRequestLifecycleBroadcaster
         return createAfterLiteral(phaseId);
     }
 
-    protected Annotation createBeforeLiteral(final javax.faces.event.PhaseId phaseId)
+    protected Annotation createBeforeLiteral(final jakarta.faces.event.PhaseId phaseId)
     {
         return new BeforePhaseBinding()
         {
@@ -166,7 +166,7 @@ public class JsfRequestLifecycleBroadcaster
         };
     }
 
-    protected Annotation createAfterLiteral(final javax.faces.event.PhaseId phaseId)
+    protected Annotation createAfterLiteral(final jakarta.faces.event.PhaseId phaseId)
     {
         return new AfterPhaseBinding()
         {

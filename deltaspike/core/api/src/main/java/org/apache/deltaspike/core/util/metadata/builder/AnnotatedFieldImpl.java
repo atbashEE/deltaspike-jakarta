@@ -19,8 +19,8 @@
 
 package org.apache.deltaspike.core.util.metadata.builder;
 
-import javax.enterprise.inject.spi.AnnotatedField;
-import javax.enterprise.inject.spi.AnnotatedType;
+import jakarta.enterprise.inject.spi.AnnotatedField;
+import jakarta.enterprise.inject.spi.AnnotatedType;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 

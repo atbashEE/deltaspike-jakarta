@@ -19,7 +19,7 @@
 
 package org.apache.deltaspike.core.util.metadata.builder;
 
-import javax.enterprise.inject.spi.AnnotatedConstructor;
+import jakarta.enterprise.inject.spi.AnnotatedConstructor;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Type;
 import java.util.Map;

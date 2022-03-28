@@ -19,11 +19,11 @@
 
 package org.apache.deltaspike.core.api.literal;
 
-import javax.enterprise.inject.Model;
-import javax.enterprise.util.AnnotationLiteral;
+import jakarta.enterprise.inject.Model;
+import jakarta.enterprise.util.AnnotationLiteral;
 
 /**
- * Literal for {@link javax.enterprise.inject.Model} annotation.
+ * Literal for {@link jakarta.enterprise.inject.Model} annotation.
  */
 public class ModelLiteral extends AnnotationLiteral<Model> implements Model
 {

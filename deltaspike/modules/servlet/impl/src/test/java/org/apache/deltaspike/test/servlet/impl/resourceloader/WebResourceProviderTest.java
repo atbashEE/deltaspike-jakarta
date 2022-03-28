@@ -24,7 +24,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.InputStream;
 import java.util.Properties;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.apache.deltaspike.core.api.resourceloader.InjectableResource;
 import org.apache.deltaspike.servlet.api.resourceloader.WebResourceProvider;

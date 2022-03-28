@@ -21,7 +21,7 @@ package org.apache.deltaspike.core.api.literal;
 import org.apache.deltaspike.core.api.resourceloader.InjectableResource;
 import org.apache.deltaspike.core.api.resourceloader.InjectableResourceProvider;
 
-import javax.enterprise.util.AnnotationLiteral;
+import jakarta.enterprise.util.AnnotationLiteral;
 
 public class InjectableResourceLiteral extends AnnotationLiteral<InjectableResource> implements InjectableResource
 {

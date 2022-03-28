@@ -27,11 +27,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.spi.CreationalContext;
-import javax.enterprise.event.Observes;
-import javax.enterprise.inject.Any;
-import javax.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.spi.CreationalContext;
+import jakarta.enterprise.event.Observes;
+import jakarta.enterprise.inject.Any;
+import jakarta.enterprise.inject.spi.BeanManager;
 
 import org.apache.deltaspike.core.api.exception.control.HandlerMethod;
 import org.apache.deltaspike.core.api.exception.control.event.ExceptionStackEvent;

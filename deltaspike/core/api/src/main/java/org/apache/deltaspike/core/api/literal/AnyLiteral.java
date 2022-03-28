@@ -18,8 +18,8 @@
  */
 package org.apache.deltaspike.core.api.literal;
 
-import javax.enterprise.inject.Any;
-import javax.enterprise.util.AnnotationLiteral;
+import jakarta.enterprise.inject.Any;
+import jakarta.enterprise.util.AnnotationLiteral;
 
 /**
  * Literal for the {@link javax.enterprise.inject.Any} annotation.

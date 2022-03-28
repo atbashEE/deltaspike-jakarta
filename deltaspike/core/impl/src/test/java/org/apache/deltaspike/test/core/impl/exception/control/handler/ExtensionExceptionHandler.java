@@ -27,7 +27,7 @@ import org.apache.deltaspike.test.core.impl.exception.control.extension.Account;
 import org.apache.deltaspike.test.core.impl.exception.control.extension.Arquillian;
 import org.apache.deltaspike.test.core.impl.exception.control.extension.CatchQualifier;
 
-import javax.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.BeanManager;
 import java.sql.SQLException;
 
 @ExceptionHandler

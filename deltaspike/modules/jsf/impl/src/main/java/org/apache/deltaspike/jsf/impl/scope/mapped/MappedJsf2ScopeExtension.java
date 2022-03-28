@@ -25,12 +25,12 @@ import org.apache.deltaspike.core.util.ClassUtils;
 import org.apache.deltaspike.core.util.ProjectStageProducer;
 import org.apache.deltaspike.jsf.impl.util.JsfUtils;
 
-import javax.enterprise.event.Observes;
-import javax.enterprise.inject.spi.AnnotatedType;
-import javax.enterprise.inject.spi.BeforeBeanDiscovery;
-import javax.enterprise.inject.spi.Extension;
-import javax.enterprise.inject.spi.ProcessAnnotatedType;
-import javax.faces.bean.ManagedBean;
+import jakarta.enterprise.event.Observes;
+import jakarta.enterprise.inject.spi.AnnotatedType;
+import jakarta.enterprise.inject.spi.BeforeBeanDiscovery;
+import jakarta.enterprise.inject.spi.Extension;
+import jakarta.enterprise.inject.spi.ProcessAnnotatedType;
+import jakarta.faces.bean.ManagedBean;
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
@@ -56,16 +56,16 @@ public class MappedJsf2ScopeExtension implements Extension, Deactivatable
         // skip on JSF3.x
         if (ClassUtils.tryToLoadClassForName("javax.faces.bean.ApplicationScoped") != null)
         {
-            this.mappedJsfScopes.put(javax.faces.bean.ApplicationScoped.class,
-                    javax.enterprise.context.ApplicationScoped.class);
-            this.mappedJsfScopes.put(javax.faces.bean.SessionScoped.class,
-                    javax.enterprise.context.SessionScoped.class);
-            this.mappedJsfScopes.put(javax.faces.bean.RequestScoped.class,
-                    javax.enterprise.context.RequestScoped.class);
+            this.mappedJsfScopes.put(jakarta.faces.bean.ApplicationScoped.class,
+                    jakarta.enterprise.context.ApplicationScoped.class);
+            this.mappedJsfScopes.put(jakarta.faces.bean.SessionScoped.class,
+                    jakarta.enterprise.context.SessionScoped.class);
+            this.mappedJsfScopes.put(jakarta.faces.bean.RequestScoped.class,
+                    jakarta.enterprise.context.RequestScoped.class);
 
             if (JsfUtils.isViewScopeDelegationEnabled())
             {
-                this.mappedJsfScopes.put(javax.faces.bean.ViewScoped.class,
+                this.mappedJsfScopes.put(jakarta.faces.bean.ViewScoped.class,
                     ClassUtils.tryToLoadClassForName("javax.faces.view.ViewScoped"));
             }
         }

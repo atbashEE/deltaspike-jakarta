@@ -20,7 +20,7 @@ package org.apache.deltaspike.core.api.resourceloader;
 
 import org.apache.deltaspike.core.util.ClassUtils;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;

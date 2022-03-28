@@ -24,8 +24,8 @@ import org.apache.deltaspike.core.api.config.Configuration;
 import org.apache.deltaspike.core.spi.config.BaseConfigPropertyProducer;
 import org.apache.deltaspike.core.util.metadata.builder.ContextualLifecycle;
 
-import javax.enterprise.context.spi.CreationalContext;
-import javax.enterprise.inject.spi.Bean;
+import jakarta.enterprise.context.spi.CreationalContext;
+import jakarta.enterprise.inject.spi.Bean;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

@@ -18,10 +18,10 @@
  */
 package org.apache.deltaspike.core.api.resourceloader;
 
-import javax.enterprise.inject.Any;
-import javax.enterprise.inject.Instance;
-import javax.enterprise.inject.spi.InjectionPoint;
-import javax.inject.Inject;
+import jakarta.enterprise.inject.Any;
+import jakarta.enterprise.inject.Instance;
+import jakarta.enterprise.inject.spi.InjectionPoint;
+import jakarta.inject.Inject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;

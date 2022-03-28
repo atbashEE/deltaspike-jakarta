@@ -18,9 +18,9 @@
  */
 package org.apache.deltaspike.core.util.bean;
 
-import javax.enterprise.inject.spi.AnnotatedType;
-import javax.enterprise.inject.spi.Bean;
-import javax.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.AnnotatedType;
+import jakarta.enterprise.inject.spi.Bean;
+import jakarta.enterprise.inject.spi.BeanManager;
 
 /**
  * <p>A WrappingBeanBuilder helps creating Beans which internally

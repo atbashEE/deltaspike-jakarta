@@ -20,13 +20,13 @@ package org.apache.deltaspike.core.util;
 
 import org.apache.deltaspike.core.util.metadata.builder.ImmutableInjectionPoint;
 
-import javax.enterprise.inject.Typed;
-import javax.enterprise.inject.spi.Annotated;
-import javax.enterprise.inject.spi.AnnotatedMethod;
-import javax.enterprise.inject.spi.AnnotatedParameter;
-import javax.enterprise.inject.spi.Bean;
-import javax.enterprise.inject.spi.BeanManager;
-import javax.enterprise.inject.spi.InjectionPoint;
+import jakarta.enterprise.inject.Typed;
+import jakarta.enterprise.inject.spi.Annotated;
+import jakarta.enterprise.inject.spi.AnnotatedMethod;
+import jakarta.enterprise.inject.spi.AnnotatedParameter;
+import jakarta.enterprise.inject.spi.Bean;
+import jakarta.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.InjectionPoint;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.HashSet;

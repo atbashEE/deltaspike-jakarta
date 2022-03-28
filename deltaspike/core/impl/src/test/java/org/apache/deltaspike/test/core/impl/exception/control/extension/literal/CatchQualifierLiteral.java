@@ -21,7 +21,7 @@ package org.apache.deltaspike.test.core.impl.exception.control.extension.literal
 
 import org.apache.deltaspike.test.core.impl.exception.control.extension.CatchQualifier;
 
-import javax.enterprise.util.AnnotationLiteral;
+import jakarta.enterprise.util.AnnotationLiteral;
 
 /**
  *

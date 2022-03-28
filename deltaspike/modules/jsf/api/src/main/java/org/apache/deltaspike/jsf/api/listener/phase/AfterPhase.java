@@ -18,7 +18,7 @@
  */
 package org.apache.deltaspike.jsf.api.listener.phase;
 
-import javax.inject.Qualifier;
+import jakarta.inject.Qualifier;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -47,7 +47,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface AfterPhase
 {
     /**
-     * {@link JsfPhaseId} which is the equivalent for the {@link javax.faces.event.PhaseId} value.
+     * {@link JsfPhaseId} which is the equivalent for the {@link jakarta.faces.event.PhaseId} value.
      * For more details see {@link JsfPhaseId}
      *
      * @return request-id which defines the jsf-lifecycle-request to completely define this qualifier

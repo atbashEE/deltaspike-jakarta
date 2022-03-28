@@ -19,8 +19,8 @@
 
 package org.apache.deltaspike.core.api.literal;
 
-import javax.enterprise.inject.Alternative;
-import javax.enterprise.util.AnnotationLiteral;
+import jakarta.enterprise.inject.Alternative;
+import jakarta.enterprise.util.AnnotationLiteral;
 
 /**
  * Literal for {@link javax.enterprise.inject.Alternative}.

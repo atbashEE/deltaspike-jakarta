@@ -19,7 +19,7 @@
 
 package org.apache.deltaspike.core.api.exception.control;
 
-import javax.enterprise.inject.Typed;
+import jakarta.enterprise.inject.Typed;
 import java.io.Serializable;
 import java.util.Arrays;
 

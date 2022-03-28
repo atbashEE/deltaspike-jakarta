@@ -19,7 +19,7 @@
 
 package org.apache.deltaspike.test.core.impl.exception.control.event;
 
-import javax.inject.Qualifier;
+import jakarta.inject.Qualifier;
 
 @Qualifier
 public @interface EventQualifier

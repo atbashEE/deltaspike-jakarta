@@ -20,7 +20,7 @@ package org.apache.deltaspike.servlet.impl.event;
 
 import java.lang.annotation.Annotation;
 
-import javax.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.BeanManager;
 
 import org.apache.deltaspike.core.api.provider.BeanManagerProvider;
 import org.apache.deltaspike.core.spi.activation.Deactivatable;

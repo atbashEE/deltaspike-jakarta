@@ -21,8 +21,8 @@ package org.apache.deltaspike.test.servlet.impl.producer;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-import javax.inject.Inject;
-import javax.servlet.ServletContext;
+import jakarta.inject.Inject;
+import jakarta.servlet.ServletContext;
 
 import org.apache.deltaspike.core.api.common.DeltaSpike;
 import org.apache.deltaspike.test.category.WebProfileCategory;

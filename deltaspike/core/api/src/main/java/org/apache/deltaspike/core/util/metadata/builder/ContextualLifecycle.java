@@ -19,8 +19,8 @@
 
 package org.apache.deltaspike.core.util.metadata.builder;
 
-import javax.enterprise.context.spi.CreationalContext;
-import javax.enterprise.inject.spi.Bean;
+import jakarta.enterprise.context.spi.CreationalContext;
+import jakarta.enterprise.inject.spi.Bean;
 
 /**
  * Callbacks used by {@link org.apache.deltaspike.core.util.bean.BeanBuilder}

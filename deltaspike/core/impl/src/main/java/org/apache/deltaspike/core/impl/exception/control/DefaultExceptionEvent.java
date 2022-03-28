@@ -23,7 +23,7 @@ import org.apache.deltaspike.core.api.exception.control.ExceptionHandlingFlow;
 import org.apache.deltaspike.core.api.exception.control.event.ExceptionStackEvent;
 import org.apache.deltaspike.core.spi.exception.control.event.IntrospectiveExceptionEvent;
 
-import javax.enterprise.inject.Typed;
+import jakarta.enterprise.inject.Typed;
 
 /**
  * Payload for an exception to be handled.  This object is not immutable as small pieces of the state may be set by the

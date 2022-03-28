@@ -23,8 +23,8 @@ import org.apache.deltaspike.core.api.exception.control.HandlerMethod;
 import org.apache.deltaspike.core.api.literal.AnyLiteral;
 import org.apache.deltaspike.core.util.HierarchyDiscovery;
 
-import javax.enterprise.inject.Typed;
-import javax.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.Typed;
+import jakarta.enterprise.inject.spi.BeanManager;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.Collection;

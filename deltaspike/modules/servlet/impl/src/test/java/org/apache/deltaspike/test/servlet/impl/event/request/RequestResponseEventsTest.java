@@ -23,7 +23,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.URL;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.apache.deltaspike.test.category.WebProfileCategory;
 import org.apache.deltaspike.test.servlet.impl.util.ArchiveUtils;

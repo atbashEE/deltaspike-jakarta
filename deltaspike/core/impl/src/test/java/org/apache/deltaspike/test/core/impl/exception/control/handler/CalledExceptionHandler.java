@@ -24,8 +24,8 @@ import org.apache.deltaspike.core.api.exception.control.ExceptionHandler;
 import org.apache.deltaspike.core.api.exception.control.Handles;
 import org.apache.deltaspike.core.api.exception.control.event.ExceptionEvent;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.spi.BeanManager;
 import java.sql.SQLException;
 
 @ApplicationScoped

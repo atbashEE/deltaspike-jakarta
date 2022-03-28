@@ -21,8 +21,8 @@ package org.apache.deltaspike.servlet.impl.produce;
 import org.apache.deltaspike.core.spi.activation.Deactivatable;
 import org.apache.deltaspike.core.util.ClassDeactivationUtils;
 
-import javax.servlet.ServletRequestEvent;
-import javax.servlet.ServletRequestListener;
+import jakarta.servlet.ServletRequestEvent;
+import jakarta.servlet.ServletRequestListener;
 
 /**
  * This class stores the ServletRequest in the {@link RequestResponseHolder}.

@@ -23,8 +23,8 @@ import org.apache.deltaspike.core.api.literal.NamedLiteral;
 import org.apache.deltaspike.core.util.metadata.AnnotationInstanceProvider;
 import org.junit.Test;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
 import java.lang.annotation.Annotation;
 import java.util.Collections;
 import java.util.HashMap;

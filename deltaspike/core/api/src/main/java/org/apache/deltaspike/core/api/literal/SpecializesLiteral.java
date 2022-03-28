@@ -18,8 +18,8 @@
  */
 package org.apache.deltaspike.core.api.literal;
 
-import javax.enterprise.inject.Specializes;
-import javax.enterprise.util.AnnotationLiteral;
+import jakarta.enterprise.inject.Specializes;
+import jakarta.enterprise.util.AnnotationLiteral;
 
 /**
  * Literal for {@link Specializes}

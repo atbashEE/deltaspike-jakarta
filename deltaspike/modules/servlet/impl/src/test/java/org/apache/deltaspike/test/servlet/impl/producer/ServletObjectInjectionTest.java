@@ -57,12 +57,15 @@ public class ServletObjectInjectionTest
                 .addAsLibraries(ArchiveUtils.getDeltaSpikeCoreAndServletModuleArchive())
                 .addClass(ServletObjectInjectionBean.class)
                 .addClass(ServletObjectInjectionServlet.class)
-                .addAsWebInfResource(new StringAsset("<beans/>"), "beans.xml")
+                .addAsWebInfResource(new StringAsset("<beans/>"), "beans.xml");
+        /* FIXME
                 .setWebXML(new StringAsset(
                         Descriptors.create(WebAppDescriptor.class)
                                 .servlet(ServletObjectInjectionServlet.class, "/servlet-object-injecetion")
                                 .exportAsString()));
 
+
+         */
     }
 
     @ArquillianResource

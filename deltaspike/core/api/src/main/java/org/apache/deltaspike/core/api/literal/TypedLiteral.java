@@ -19,8 +19,8 @@
 
 package org.apache.deltaspike.core.api.literal;
 
-import javax.enterprise.inject.Typed;
-import javax.enterprise.util.AnnotationLiteral;
+import jakarta.enterprise.inject.Typed;
+import jakarta.enterprise.util.AnnotationLiteral;
 
 /**
  * Literal for {@link javax.enterprise.inject.Typed}

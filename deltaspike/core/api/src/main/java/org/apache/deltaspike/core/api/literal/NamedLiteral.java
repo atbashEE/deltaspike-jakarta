@@ -19,8 +19,8 @@
 
 package org.apache.deltaspike.core.api.literal;
 
-import javax.enterprise.util.AnnotationLiteral;
-import javax.inject.Named;
+import jakarta.enterprise.util.AnnotationLiteral;
+import jakarta.inject.Named;
 
 /**
  * Literal for {@link javax.inject.Named} qualifier.

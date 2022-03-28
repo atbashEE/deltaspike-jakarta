@@ -21,7 +21,7 @@ package org.apache.deltaspike.test.core.impl.exception.control.event.literal;
 
 import org.apache.deltaspike.test.core.impl.exception.control.event.EventQualifier;
 
-import javax.enterprise.util.AnnotationLiteral;
+import jakarta.enterprise.util.AnnotationLiteral;
 
 public class EventQualifierLiteral extends AnnotationLiteral<EventQualifier> implements EventQualifier
 {

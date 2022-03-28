@@ -18,8 +18,8 @@
  */
 package org.apache.deltaspike.test.core.api.config.propertyconfigsource;
 
-import javax.ejb.Stateless;
-import javax.inject.Inject;
+import jakarta.ejb.Stateless;
+import jakarta.inject.Inject;
 
 import org.apache.deltaspike.core.api.config.ConfigProperty;
 

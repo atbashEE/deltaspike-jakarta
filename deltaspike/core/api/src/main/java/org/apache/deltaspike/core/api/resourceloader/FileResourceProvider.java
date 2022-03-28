@@ -18,7 +18,7 @@
  */
 package org.apache.deltaspike.core.api.resourceloader;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

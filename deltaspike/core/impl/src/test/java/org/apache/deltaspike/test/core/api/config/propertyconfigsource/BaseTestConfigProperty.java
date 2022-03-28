@@ -18,7 +18,7 @@
  */
 package org.apache.deltaspike.test.core.api.config.propertyconfigsource;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import java.io.BufferedWriter;
 import java.io.File;

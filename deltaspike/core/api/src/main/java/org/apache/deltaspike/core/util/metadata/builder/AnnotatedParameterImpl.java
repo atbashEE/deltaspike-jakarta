@@ -19,8 +19,8 @@
 
 package org.apache.deltaspike.core.util.metadata.builder;
 
-import javax.enterprise.inject.spi.AnnotatedCallable;
-import javax.enterprise.inject.spi.AnnotatedParameter;
+import jakarta.enterprise.inject.spi.AnnotatedCallable;
+import jakarta.enterprise.inject.spi.AnnotatedParameter;
 import java.lang.reflect.Type;
 
 /**

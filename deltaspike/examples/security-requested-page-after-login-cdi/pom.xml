@@ -57,11 +57,11 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.apache.myfaces.core</groupId>
-            <artifactId>myfaces-api</artifactId>
-            <version>${myfaces2.version}</version>
+            <groupId>jakarta.faces</groupId>
+            <artifactId>jakarta.faces-api</artifactId>
             <scope>provided</scope>
         </dependency>
+
 
         <!-- DeltaSpike modules -->
         <dependency>

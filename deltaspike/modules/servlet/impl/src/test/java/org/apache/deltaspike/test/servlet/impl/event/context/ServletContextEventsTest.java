@@ -20,7 +20,7 @@ package org.apache.deltaspike.test.servlet.impl.event.context;
 
 import static org.junit.Assert.assertTrue;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.apache.deltaspike.test.category.WebProfileCategory;
 import org.apache.deltaspike.test.servlet.impl.util.ArchiveUtils;

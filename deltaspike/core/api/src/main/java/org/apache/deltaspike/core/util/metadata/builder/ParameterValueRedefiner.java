@@ -18,9 +18,9 @@
  */
 package org.apache.deltaspike.core.util.metadata.builder;
 
-import javax.enterprise.context.spi.CreationalContext;
-import javax.enterprise.inject.spi.BeanManager;
-import javax.enterprise.inject.spi.InjectionPoint;
+import jakarta.enterprise.context.spi.CreationalContext;
+import jakarta.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.InjectionPoint;
 
 /**
  * Provides the ability to redefine the value of a parameter on an

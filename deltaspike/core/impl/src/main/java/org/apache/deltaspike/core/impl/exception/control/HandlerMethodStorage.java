@@ -21,7 +21,7 @@ package org.apache.deltaspike.core.impl.exception.control;
 
 import org.apache.deltaspike.core.api.exception.control.HandlerMethod;
 
-import javax.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.BeanManager;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.Collection;

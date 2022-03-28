@@ -23,7 +23,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.URL;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.apache.deltaspike.test.category.WebProfileCategory;
 import org.apache.deltaspike.test.servlet.impl.util.ArchiveUtils;
@@ -66,13 +66,15 @@ public class SessionEventsTest
                 .addClass(CreateSessionServlet.class)
                 .addClass(DestroySessionServlet.class)
                 .addAsWebInfResource(new StringAsset("<beans/>"), "beans.xml")
-                .addAsWebResource(new StringAsset("foobar"), "foobar.txt")
+                .addAsWebResource(new StringAsset("foobar"), "foobar.txt");
+        // FIXME
+        /*
                 .setWebXML(new StringAsset(
                         Descriptors.create(WebAppDescriptor.class)
                                 .servlet(CreateSessionServlet.class, "/create-session")
                                 .servlet(DestroySessionServlet.class, "/destroy-session")
                                 .exportAsString()));
-
+        */
     }
 
     /**

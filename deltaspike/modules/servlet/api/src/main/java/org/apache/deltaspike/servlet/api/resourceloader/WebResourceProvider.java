@@ -20,9 +20,9 @@ package org.apache.deltaspike.servlet.api.resourceloader;
 
 import java.io.InputStream;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.servlet.ServletContext;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.servlet.ServletContext;
 
 import org.apache.deltaspike.core.api.common.DeltaSpike;
 import org.apache.deltaspike.core.api.resourceloader.AbstractResourceProvider;

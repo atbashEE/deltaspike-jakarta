@@ -19,9 +19,9 @@
 
 package org.apache.deltaspike.core.util.metadata.builder;
 
-import javax.enterprise.context.spi.CreationalContext;
-import javax.enterprise.inject.spi.Bean;
-import javax.enterprise.inject.spi.InjectionTarget;
+import jakarta.enterprise.context.spi.CreationalContext;
+import jakarta.enterprise.inject.spi.Bean;
+import jakarta.enterprise.inject.spi.InjectionTarget;
 
 /**
  * An implementation of {@link ContextualLifecycle} that is backed by an

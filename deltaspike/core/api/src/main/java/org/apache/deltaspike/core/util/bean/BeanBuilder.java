@@ -26,15 +26,15 @@ import org.apache.deltaspike.core.util.metadata.builder.ContextualLifecycle;
 import org.apache.deltaspike.core.util.metadata.builder.DelegatingContextualLifecycle;
 import org.apache.deltaspike.core.util.metadata.builder.DummyInjectionTarget;
 
-import javax.enterprise.context.Dependent;
-import javax.enterprise.inject.Alternative;
-import javax.enterprise.inject.Typed;
-import javax.enterprise.inject.spi.AnnotatedType;
-import javax.enterprise.inject.spi.Bean;
-import javax.enterprise.inject.spi.BeanManager;
-import javax.enterprise.inject.spi.InjectionPoint;
-import javax.enterprise.inject.spi.InjectionTarget;
-import javax.inject.Named;
+import jakarta.enterprise.context.Dependent;
+import jakarta.enterprise.inject.Alternative;
+import jakarta.enterprise.inject.Typed;
+import jakarta.enterprise.inject.spi.AnnotatedType;
+import jakarta.enterprise.inject.spi.Bean;
+import jakarta.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.InjectionPoint;
+import jakarta.enterprise.inject.spi.InjectionTarget;
+import jakarta.inject.Named;
 
 import java.beans.Introspector;
 import java.lang.annotation.Annotation;
@@ -48,7 +48,7 @@ import java.util.Set;
 /**
  * <p>
  * A builder class for creating immutable beans. The builder can create
- * {@link javax.enterprise.inject.spi.PassivationCapable} beans.
+ * {@link jakarta.enterprise.inject.spi.PassivationCapable} beans.
  * </p>
  * <p/>
  * <p>

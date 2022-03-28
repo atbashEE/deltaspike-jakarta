@@ -23,8 +23,8 @@ import org.apache.deltaspike.core.api.exception.control.event.ExceptionEvent;
 import org.apache.deltaspike.core.api.provider.BeanManagerProvider;
 import org.apache.deltaspike.core.util.metadata.builder.ParameterValueRedefiner;
 
-import javax.enterprise.context.spi.CreationalContext;
-import javax.enterprise.inject.spi.Bean;
+import jakarta.enterprise.context.spi.CreationalContext;
+import jakarta.enterprise.inject.spi.Bean;
 
 /**
  * Redefiner allowing to inject a non contextual instance of {@link DefaultExceptionEvent} into the first parameter.

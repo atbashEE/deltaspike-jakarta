@@ -39,16 +39,7 @@
         <version.jaxb-api>2.3.1</version.jaxb-api>
         <version.jaxb>2.3.0.1</version.jaxb>
         <version.activation>1.1.1</version.activation>
-        <version.annotation>1.3.2</version.annotation>
-        <bval.artifactId>bval-jsr303</bval.artifactId>
-        <validation.artifactId>geronimo-validation_1.0_spec</validation.artifactId>
-        <jboss.as.version>7.1.1.Final</jboss.as.version>
-        <wildfly.version>10.1.0.Final</wildfly.version>
-        <wildfly.arquillian.version>1.0.2.Final</wildfly.arquillian.version>
-        <glassfish3.version>3.1.2.2</glassfish3.version>
-        <glassfish4.version>4.0</glassfish4.version>
-        <payara.version>4.1.2.181</payara.version>
-        <wls.version>12.1</wls.version>
+
     </properties>
 
 
@@ -92,12 +83,9 @@
             <version>${version.jaxb}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-            <version>${version.annotation}</version>
-            <scope>provided</scope>
-        </dependency>
+
+
+        <!-- FIXME Update to Jakarta -->
         <dependency>
             <groupId>javax.activation</groupId>
             <artifactId>activation</artifactId>

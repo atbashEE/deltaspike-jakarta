@@ -18,8 +18,8 @@
  */
 package org.apache.deltaspike.servlet.impl.produce;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
 
 /**
  * This class stores the ServletContext in the {@link ServletContextHolder}.

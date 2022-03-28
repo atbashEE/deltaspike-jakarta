@@ -23,11 +23,11 @@ import org.apache.deltaspike.core.api.exclude.Exclude;
 import org.apache.deltaspike.core.impl.config.ConfigurationExtension;
 import org.apache.deltaspike.core.spi.config.ConfigSource;
 
-import javax.enterprise.inject.Typed;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import jakarta.enterprise.inject.Typed;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
 
 /**
  * Provide the application name in servlet environments.

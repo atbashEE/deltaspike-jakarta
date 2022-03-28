@@ -21,7 +21,7 @@ package org.apache.deltaspike.core.api.exception.control.event;
 
 import org.apache.deltaspike.core.api.exception.control.ExceptionStackItem;
 
-import javax.enterprise.inject.Typed;
+import jakarta.enterprise.inject.Typed;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayDeque;

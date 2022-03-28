@@ -20,9 +20,9 @@ package org.apache.deltaspike.core.impl.exception.control;
 
 import org.apache.deltaspike.core.impl.exception.control.extension.ExceptionControlExtension;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Produces;
+import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class HandlerMethodStorageProducer

@@ -62,36 +62,8 @@
         <arquillian.version>1.1.8.Final</arquillian.version>
         <tomee.version>1.7.0</tomee.version>
 
-        <!-- JSF-2.0 implementations-->
-        <myfaces2.version>2.0.14</myfaces2.version>
-        <myfaces22.version>2.2.3</myfaces22.version>
-        <myfaces2.version.current>2.1.8</myfaces2.version.current>
-        <mojarra2.version>2.0.3-b03</mojarra2.version>
-
-        <!-- JSF-1.2 implementations-->
-        <myfaces1.version>1.2.8</myfaces1.version>
-        <mojarra1.version>1.2_14</mojarra1.version>
-
         <!-- used for some bytecode proxy stuff. Shaded in -->
         <asm.version>9.1</asm.version>
-
-        <!-- Geronimo specs -->
-        <geronimo-annotation_1.2_spec.version>1.0</geronimo-annotation_1.2_spec.version>
-        <geronimo-annotation_1.3_spec.version>1.0</geronimo-annotation_1.3_spec.version>
-        <geronimo-atinject-1.0-spec.version>1.0</geronimo-atinject-1.0-spec.version>
-        <geronimo-ejb-3.1-spec.version>1.0.2</geronimo-ejb-3.1-spec.version>
-        <geronimo-jcdi-1.0-spec.version>1.0</geronimo-jcdi-1.0-spec.version>
-        <geronimo-jcdi-1.1-spec.version>1.0</geronimo-jcdi-1.1-spec.version>
-        <geronimo-jcdi-2.0-spec.version>1.0</geronimo-jcdi-2.0-spec.version>
-        <geronimo-interceptor-1.1-spec.version>1.0</geronimo-interceptor-1.1-spec.version>
-        <geronimo-interceptor-1.2-spec.version>1.0</geronimo-interceptor-1.2-spec.version>
-        <geronimo-servlet-2.5-spec.version>1.2</geronimo-servlet-2.5-spec.version>
-        <geronimo-servlet-3.0-spec.version>1.0</geronimo-servlet-3.0-spec.version>
-        <geronimo-el-2.2-spec.version>1.0.3</geronimo-el-2.2-spec.version>
-        <geronimo-validation-1.0-spec.version>1.1</geronimo-validation-1.0-spec.version>
-        <geronimo-validation-1.1-spec.version>1.0</geronimo-validation-1.1-spec.version>
-        <geronimo-jpa-2.0-spec.version>1.1</geronimo-jpa-2.0-spec.version>
-        <geronimo-jta-1.1-spec.version>1.1.1</geronimo-jta-1.1-spec.version>
 
         <maven.jetty.plugin.version>7.1.5.v20100705</maven.jetty.plugin.version>
         <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
@@ -408,6 +380,43 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>jakarta.enterprise</groupId>
+                <artifactId>jakarta.enterprise.cdi-api</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>2.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>5.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.el</groupId>
+                <artifactId>jakarta.el-api</artifactId>
+                <version>4.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.interceptor</groupId>
+                <artifactId>jakarta.interceptor-api</artifactId>
+                <version>2.0.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.ejb</groupId>
+                <artifactId>jakarta.ejb-api</artifactId>
+                <version>4.0.0</version>
+            </dependency>
+
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -425,30 +434,8 @@
             </dependency>
 
             <!-- OWB specific dependencies-->
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-atinject_1.0_spec</artifactId>
-                <version>${geronimo-atinject-1.0-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-ejb_3.1_spec</artifactId>
-                <version>${geronimo-ejb-3.1-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-jcdi_1.0_spec</artifactId>
-                <version>${geronimo-jcdi-1.0-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-interceptor_1.1_spec</artifactId>
-                <version>${geronimo-interceptor-1.1-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
+
+
             <dependency>
                 <groupId>org.apache.openwebbeans</groupId>
                 <artifactId>openwebbeans-impl</artifactId>
@@ -496,52 +483,6 @@
                 <artifactId>openwebbeans-jsf</artifactId>
                 <version>${owb.version}</version>
                 <scope>test</scope>
-            </dependency>
-
-            <!--
-                We currently need this for the CDI test container to emulate the @SessionScoped.
-                TODO: Finally this should not be necessary anymore.
-            -->
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-servlet_3.0_spec</artifactId>
-                <version>${geronimo-servlet-3.0-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-el_2.2_spec</artifactId>
-                <version>${geronimo-el-2.2-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-validation_1.0_spec</artifactId>
-                <version>${geronimo-validation-1.0-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-validation_1.1_spec</artifactId>
-                <version>${geronimo-validation-1.1-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-jpa_2.0_spec</artifactId>
-                <version>${geronimo-jpa-2.0-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-jta_1.1_spec</artifactId>
-                <version>${geronimo-jta-1.1-spec.version}</version>
-                <scope>provided</scope>
             </dependency>
 
             <dependency>
@@ -670,14 +611,6 @@
                 <scope>runtime</scope>
             </dependency>
 
-
-            <dependency>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-servlet_2.5_spec</artifactId>
-                <version>${geronimo-servlet-2.5-spec.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
             <!-- dependency for DELTASPIKE-1401 -->
             <dependency>
                 <groupId>org.owasp.encoder</groupId>
@@ -718,50 +651,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.bval</groupId>
-                <artifactId>bval-jsr303</artifactId>
-                <version>${bval.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.bval</groupId>
-                <artifactId>bval-jsr</artifactId>
-                <version>${bval1.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.myfaces.core</groupId>
-                <artifactId>myfaces-api</artifactId>
-                <version>${myfaces22.version}</version>
-                <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.geronimo.specs</groupId>
-                        <artifactId>geronimo-jcdi_1.0_spec</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.myfaces.core</groupId>
-                <artifactId>myfaces-impl</artifactId>
-                <version>${myfaces22.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.myfaces.core</groupId>
-                <artifactId>myfaces-impl-test</artifactId>
-                <version>${myfaces22.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.myfaces.test</groupId>
-                <artifactId>myfaces-test20</artifactId>
-                <version>1.0.6</version>
+                <groupId>jakarta.faces</groupId>
+                <artifactId>jakarta.faces-api</artifactId>
+                <version>3.0.0</version>
                 <scope>provided</scope>
             </dependency>
 
