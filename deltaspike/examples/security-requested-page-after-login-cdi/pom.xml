@@ -39,7 +39,7 @@
 -->
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.apache.deltaspike.examples</groupId>
+        <groupId>be.atbash.jakarta.deltaspike.examples</groupId>
         <artifactId>examples-project</artifactId>
         <version>1.9.5</version>
     </parent>
@@ -65,37 +65,37 @@
 
         <!-- DeltaSpike modules -->
         <dependency>
-            <groupId>org.apache.deltaspike.core</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.core</groupId>
             <artifactId>deltaspike-core-api</artifactId>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.deltaspike.core</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.core</groupId>
             <artifactId>deltaspike-core-impl</artifactId>
             <scope>runtime</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.deltaspike.modules</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
             <artifactId>deltaspike-jsf-module-api</artifactId>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.deltaspike.modules</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
             <artifactId>deltaspike-jsf-module-impl</artifactId>
             <scope>runtime</scope>
         </dependency>
         
         <dependency>
-            <groupId>org.apache.deltaspike.modules</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
             <artifactId>deltaspike-security-module-api</artifactId>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.deltaspike.modules</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
             <artifactId>deltaspike-security-module-impl</artifactId>
             <scope>runtime</scope>
         </dependency>

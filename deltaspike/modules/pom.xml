@@ -21,13 +21,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.deltaspike</groupId>
+        <groupId>be.atbash.jakarta.deltaspike</groupId>
         <artifactId>parent-code</artifactId>
         <version>1.9.5</version>
         <relativePath>../parent/code/pom.xml</relativePath>
     </parent>
 
-    <groupId>org.apache.deltaspike.modules</groupId>
+    <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
     <artifactId>modules-project</artifactId>
     <version>1.9.5</version>
     <packaging>pom</packaging>
@@ -37,13 +37,9 @@
     <modules>
         <module>proxy</module>
         <module>security</module>
-        <module>jpa</module>
         <module>servlet</module>
         <module>jsf</module>
         <module>partial-bean</module>
-        <module>bean-validation</module>
-        <module>data</module>
-        <module>scheduler</module>
         <module>test-control</module>
     </modules>
 </project>

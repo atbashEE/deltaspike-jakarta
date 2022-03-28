@@ -21,12 +21,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.deltaspike.modules</groupId>
+        <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
         <artifactId>modules-project</artifactId>
         <version>1.9.5</version>
     </parent>
 
-    <groupId>org.apache.deltaspike.modules</groupId>
     <artifactId>proxy-module-project</artifactId>
     <version>1.9.5</version>
     <packaging>pom</packaging>

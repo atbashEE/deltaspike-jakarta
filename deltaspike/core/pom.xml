@@ -21,13 +21,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.deltaspike</groupId>
+        <groupId>be.atbash.jakarta.deltaspike</groupId>
         <artifactId>parent-code</artifactId>
         <version>1.9.5</version>
         <relativePath>../parent/code/pom.xml</relativePath>
     </parent>
 
-    <groupId>org.apache.deltaspike.core</groupId>
+    <groupId>be.atbash.jakarta.deltaspike.core</groupId>
     <artifactId>core-project</artifactId>
     <packaging>pom</packaging>
 

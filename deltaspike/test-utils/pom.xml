@@ -21,13 +21,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.deltaspike</groupId>
+        <groupId>be.atbash.jakarta.deltaspike</groupId>
         <artifactId>parent</artifactId>
         <version>1.9.5</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
-    <groupId>org.apache.deltaspike.test</groupId>
+    <groupId>be.atbash.jakarta.deltaspike.test</groupId>
     <artifactId>test-utils</artifactId>
 
     <name>Apache DeltaSpike Test-Utils</name>

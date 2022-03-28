@@ -21,7 +21,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.deltaspike.modules</groupId>
+        <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
         <artifactId>jsf-module-project</artifactId>
         <version>1.9.5</version>
     </parent>
@@ -117,38 +117,38 @@
 
 
         <dependency>
-            <groupId>org.apache.deltaspike.core</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.core</groupId>
             <artifactId>deltaspike-core-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.deltaspike.core</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.core</groupId>
             <artifactId>deltaspike-core-impl</artifactId>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.deltaspike.modules</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
             <artifactId>deltaspike-security-module-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.deltaspike.modules</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
             <artifactId>deltaspike-security-module-impl</artifactId>
             <scope>runtime</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.deltaspike.modules</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
             <artifactId>deltaspike-jsf-module-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.deltaspike.modules</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
             <artifactId>deltaspike-proxy-module-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.deltaspike.modules</groupId>
+            <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
             <artifactId>deltaspike-proxy-module-impl-asm</artifactId>
         </dependency>
 

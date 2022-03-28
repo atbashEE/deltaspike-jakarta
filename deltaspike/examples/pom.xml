@@ -40,27 +40,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.deltaspike</groupId>
+        <groupId>be.atbash.jakarta.deltaspike</groupId>
         <artifactId>parent</artifactId>
         <version>1.9.5</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
-    <groupId>org.apache.deltaspike.examples</groupId>
+    <groupId>be.atbash.jakarta.deltaspike.examples</groupId>
     <artifactId>examples-project</artifactId>
     <packaging>pom</packaging>
 
     <name>Apache DeltaSpike Examples</name>
 
     <modules>
-        <module>jse-examples</module>
         <module>jsf-examples</module>
         <module>jsf-playground</module>
         <module>security-requested-page-after-login-cdi</module>
-        <module>security-requested-page-after-login-picketlink</module>
-        <module>scheduler-playground</module>
-        <module>jpa-examples</module>
-        <module>data-examples</module>
     </modules>
 
     <properties>

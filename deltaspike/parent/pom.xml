@@ -21,7 +21,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.deltaspike</groupId>
+        <groupId>be.atbash.jakarta.deltaspike</groupId>
         <artifactId>deltaspike-project</artifactId>
         <version>1.9.5</version>
         <relativePath>../pom.xml</relativePath>
@@ -552,200 +552,124 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.core</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.core</groupId>
                 <artifactId>deltaspike-core-api</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.core</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.core</groupId>
                 <artifactId>deltaspike-core-impl</artifactId>
                 <version>${project.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-security-module-api</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-security-module-impl</artifactId>
                 <version>${project.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-jpa-module-api</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-jpa-module-impl</artifactId>
                 <version>${project.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-servlet-module-api</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-servlet-module-impl</artifactId>
                 <version>${project.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-jsf-module-api</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-jsf-module-impl</artifactId>
                 <version>${project.version}</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-jsf-module-impl-ee6</artifactId>
                 <version>${project.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
-                <artifactId>deltaspike-data-module-api</artifactId>
-                <version>${project.version}</version>
-                <scope>compile</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
-                <artifactId>deltaspike-data-module-impl</artifactId>
-                <version>${project.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-proxy-module-api</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-proxy-module-impl-asm</artifactId>
                 <version>${project.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
-            <!-- Dependencies for Java-SE -->
-            <dependency>
-                <groupId>org.apache.deltaspike.cdictrl</groupId>
-                <artifactId>deltaspike-cdictrl-api</artifactId>
-                <version>${project.version}</version>
-                <scope>compile</scope>
-            </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.cdictrl</groupId>
-                <artifactId>deltaspike-cdictrl-owb</artifactId>
-                <version>${project.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.deltaspike.cdictrl</groupId>
-                <artifactId>deltaspike-cdictrl-openejb</artifactId>
-                <version>${project.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.deltaspike.cdictrl</groupId>
-                <artifactId>deltaspike-cdictrl-servlet</artifactId>
-                <version>${project.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.deltaspike.cdictrl</groupId>
-                <artifactId>deltaspike-cdictrl-weld</artifactId>
-                <version>${project.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-partial-bean-module-api</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-partial-bean-module-impl</artifactId>
                 <version>${project.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-test-control-module-api</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
+                <groupId>be.atbash.jakarta.deltaspike.modules</groupId>
                 <artifactId>deltaspike-test-control-module-impl</artifactId>
                 <version>${project.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
-            <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
-                <artifactId>deltaspike-scheduler-module-api</artifactId>
-                <version>${project.version}</version>
-                <scope>compile</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
-                <artifactId>deltaspike-scheduler-module-impl</artifactId>
-                <version>${project.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
-                <artifactId>deltaspike-bean-validation-module-api</artifactId>
-                <version>${project.version}</version>
-                <scope>compile</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.deltaspike.modules</groupId>
-                <artifactId>deltaspike-bean-validation-module-impl</artifactId>
-                <version>${project.version}</version>
-                <scope>runtime</scope>
-            </dependency>
 
             <dependency>
                 <groupId>org.apache.geronimo.specs</groupId>
@@ -962,39 +886,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <!--
-                - Make a checkstyle violation a compile error. Note that if a compile error occurs,
-                - further information can be found in target/site/checkstyle.html (present even when
-                - just the compile goal and not the site goal has been run). Note also that child
-                - projects may redeclare this plugin and provide different configuration settings
-                - to use different checks (more or less strict than the default).
-            -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven.checkstyle.plugin.version}</version>
-                <configuration>
-                    <configLocation>deltaspike/default-checks.xml</configLocation>
-                    <headerLocation>deltaspike/asf-header.txt</headerLocation>
-                    <consoleOutput>true</consoleOutput>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>verify-style</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.deltaspike</groupId>
-                        <artifactId>checkstyle-rules</artifactId>
-                        <version>${project.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
 
             <plugin>

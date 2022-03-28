@@ -40,7 +40,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.deltaspike</groupId>
+        <groupId>be.atbash.jakarta.deltaspike</groupId>
         <artifactId>deltaspike</artifactId>
         <version>1.9.5</version>
         <relativePath>../pom.xml</relativePath>
@@ -54,7 +54,6 @@
      * and no build-rules at all. See parent/pom.xml for all
      * the dependencyManagement and plugin configuration stuff.
     -->
-    <groupId>org.apache.deltaspike</groupId>
     <artifactId>deltaspike-project</artifactId>
     <version>1.9.5</version>
     <packaging>pom</packaging>
@@ -68,35 +67,16 @@
     </properties>
 
     <modules>
-        <module>checkstyle-rules</module>
         <module>parent</module>
         <module>test-utils</module>
         <module>core</module>
-        <module>cdictrl</module>
         <module>modules</module>
         <module>examples</module>
-        <module>dist</module>
     </modules>
 
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.apache.rat</groupId>
-                    <artifactId>apache-rat-plugin</artifactId>
-                    <version>0.13</version>
-                    <configuration>
-                        <excludes>
-                            <exclude>.idea/**/*</exclude>
-                            <exclude>readme/**/*</exclude>
-                            <exclude>**/*.log</exclude>
-                            <exclude>**/target/**</exclude>
-                            <exclude>test-ee7/target/**</exclude>
-                            <exclude>**/*.iml</exclude>
-                            <exclude>**/MANIFEST.MF</exclude>
-                        </excludes>
-                    </configuration>
-                </plugin>
 
                 <!-- Javadoc plugin -->
                 <plugin>
@@ -173,20 +153,7 @@
             </plugins>
         </pluginManagement>
 
-        <plugins>
-            <plugin>
-                <groupId>org.apache.rat</groupId>
-                <artifactId>apache-rat-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+
     </build>
 
     <profiles>

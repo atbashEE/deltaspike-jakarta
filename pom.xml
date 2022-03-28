@@ -35,7 +35,7 @@
      * and no build-rules at all. See parent/pom.xml for all
      * the dependencyManagement and plugin configuration stuff. 
     -->
-    <groupId>org.apache.deltaspike</groupId>
+    <groupId>be.atbash.jakarta.deltaspike</groupId>
     <artifactId>deltaspike</artifactId>
     <version>1.9.5</version>
     <packaging>pom</packaging>
@@ -53,12 +53,6 @@
         <svn.scmPubCheckoutDirectory>${project.build.directory}/co-site</svn.scmPubCheckoutDirectory>
     </properties>
 
-    <scm>
-        <connection>scm:git:https://git-wip-us.apache.org/repos/asf/deltaspike.git</connection>
-        <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/deltaspike.git</developerConnection>
-        <url>https://git-wip-us.apache.org/repos/asf/deltaspike.git</url>
-        <tag>deltaspike-1.9.5</tag>
-    </scm>
 
     <modules>
         <module>deltaspike</module>
