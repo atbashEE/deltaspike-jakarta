@@ -20,15 +20,14 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <body>
 <f:view locale="#{jsfMessageBackingBean.locale}">
     <f:metadata>
         <f:viewParam name="lang" id="lang" value="#{jsfMessageBackingBean.locale}"/>
-        <f:event type="javax.faces.event.PreRenderViewEvent" listener="#{jsfMessageBackingBean.init}"/>
+        <f:event type="preRenderViewEvent" listener="#{jsfMessageBackingBean.init}"/>
     </f:metadata>
     <div>
 

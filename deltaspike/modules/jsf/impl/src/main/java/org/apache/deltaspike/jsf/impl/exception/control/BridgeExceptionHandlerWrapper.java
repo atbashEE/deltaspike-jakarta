@@ -90,7 +90,7 @@ public class BridgeExceptionHandlerWrapper extends ExceptionHandlerWrapper imple
                     ExceptionToCatchEvent event = new ExceptionToCatchEvent(rootCause, exceptionQualifier);
                     event.setOptional(true);
 
-                    beanManager.fireEvent(event);
+                    beanManager.getEvent().fire(event);
 
                     if (event.isHandled())
                     {
@@ -139,7 +139,7 @@ public class BridgeExceptionHandlerWrapper extends ExceptionHandlerWrapper imple
                     ExceptionToCatchEvent exceptionToCatchEvent = new ExceptionToCatchEvent(exception);
                     exceptionToCatchEvent.setOptional(true);
 
-                    this.beanManager.fireEvent(exceptionToCatchEvent);
+                    this.beanManager.getEvent().fire(exceptionToCatchEvent);
 
                     if (exceptionToCatchEvent.isHandled())
                     {

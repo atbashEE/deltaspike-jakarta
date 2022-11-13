@@ -129,7 +129,7 @@ public class DefaultSecurityStrategy implements SecurityStrategy
     protected RuntimeException handleAccessDeniedException(AccessDeniedException originalException)
     {
         ExceptionToCatchEvent exceptionToCatchEvent = new ExceptionToCatchEvent(originalException);
-        this.beanManager.fireEvent(exceptionToCatchEvent);
+        this.beanManager.getEvent().fire(exceptionToCatchEvent);
         return originalException;
     }
 }

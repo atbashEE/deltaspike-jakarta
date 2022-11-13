@@ -47,7 +47,6 @@ public class ImmutablePassivationCapableBeanWrapper<T> extends ImmutableBeanWrap
      * @param stereotypes the bean's stereotypes
      * @param types       the types of the bean
      * @param alternative whether the bean is an alternative
-     * @param nullable    true if the bean is nullable
      * @param toString    the string which should be returned by #{@link #toString()}
      * @param id          the passivationId which gets returned by {@link #getId()}
      */
@@ -58,11 +57,10 @@ public class ImmutablePassivationCapableBeanWrapper<T> extends ImmutableBeanWrap
                                                   Set<Class<? extends Annotation>> stereotypes,
                                                   Set<Type> types,
                                                   boolean alternative,
-                                                  boolean nullable,
                                                   String toString,
                                                   String id)
     {
-        super(bean, name, qualifiers, scope, stereotypes, types, alternative, nullable, toString);
+        super(bean, name, qualifiers, scope, stereotypes, types, alternative, toString);
         this.id = id;
     }
 

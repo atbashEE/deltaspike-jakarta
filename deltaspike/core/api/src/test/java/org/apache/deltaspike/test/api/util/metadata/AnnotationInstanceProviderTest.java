@@ -138,7 +138,7 @@ public class AnnotationInstanceProviderTest
     @Test
     public void assertBasicToString()
     {
-        assertThat(AnnotationInstanceProvider.of(RequestScoped.class).toString(), is("@javax.enterprise.context.RequestScoped()"));
+        assertThat(AnnotationInstanceProvider.of(RequestScoped.class).toString(), is("@jakarta.enterprise.context.RequestScoped()"));
     }
 
     @Test

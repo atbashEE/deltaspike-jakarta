@@ -18,6 +18,7 @@
  */
 package org.apache.deltaspike.jsf.impl.listener.request;
 
+import jakarta.enterprise.context.RequestScoped;
 import org.apache.deltaspike.core.api.literal.DestroyedLiteral;
 import org.apache.deltaspike.core.api.literal.InitializedLiteral;
 import org.apache.deltaspike.core.spi.activation.Deactivatable;
@@ -27,7 +28,6 @@ import org.apache.deltaspike.core.util.metadata.AnnotationInstanceProvider;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.event.Event;
-import jakarta.faces.bean.RequestScoped;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import java.lang.annotation.Annotation;
@@ -41,10 +41,10 @@ import java.util.Map;
  * with
  * {@link FacesContext} as event-payload
  * and/or in case of CDI 1.1+
- * {@link javax.enterprise.context.Initialized}
- * {@link javax.enterprise.context.Destroyed}
+ * {@link jakarta.enterprise.context.Initialized}
+ * {@link jakarta.enterprise.context.Destroyed}
  * with
- * {@link javax.faces.bean.RequestScoped} as annotation-parameter and
+ * {@link jakarta.enterprise.context.RequestScoped} as annotation-parameter and
  * {@link FacesContext} as event-payload
  */
 @ApplicationScoped
@@ -65,14 +65,14 @@ public class JsfRequestBroadcaster implements Deactivatable
         Map<String, Class> values = new HashMap<String, Class>();
         values.put("value", RequestScoped.class);
         Class<? extends Annotation> initializedAnnotationClass =
-            ClassUtils.tryToLoadClassForName("javax.enterprise.context.Initialized");
+            ClassUtils.tryToLoadClassForName("jakarta.enterprise.context.Initialized");
         if (initializedAnnotationClass != null)
         {
             this.initializedAnnotationInstance = AnnotationInstanceProvider.of(initializedAnnotationClass, values);
         }
 
         Class<? extends Annotation> destroyedAnnotationClass =
-            ClassUtils.tryToLoadClassForName("javax.enterprise.context.Destroyed");
+            ClassUtils.tryToLoadClassForName("jakarta.enterprise.context.Destroyed");
         if (destroyedAnnotationClass != null)
         {
             this.destroyedAnnotationInstance = AnnotationInstanceProvider.of(destroyedAnnotationClass, values);

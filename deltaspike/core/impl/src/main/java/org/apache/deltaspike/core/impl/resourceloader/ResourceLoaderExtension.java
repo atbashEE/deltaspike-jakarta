@@ -18,30 +18,27 @@
  */
 package org.apache.deltaspike.core.impl.resourceloader;
 
-import org.apache.deltaspike.core.api.resourceloader.ClasspathResourceProvider;
-import org.apache.deltaspike.core.api.resourceloader.FileResourceProvider;
-
 import jakarta.enterprise.inject.spi.AnnotatedType;
 import jakarta.enterprise.inject.spi.BeanManager;
 import jakarta.enterprise.inject.spi.BeforeBeanDiscovery;
 import jakarta.enterprise.inject.spi.Extension;
+import org.apache.deltaspike.core.api.resourceloader.ClasspathResourceProvider;
+import org.apache.deltaspike.core.api.resourceloader.FileResourceProvider;
 
 /**
  * This is needed for certain class loading cases (EARs, external modules).
  * Simply registers additional resource loader classes to the context.
  */
 //TODO re-visit it based on DELTASPIKE-472
-public class ResourceLoaderExtension implements Extension
-{
-    public void addResourceLoaders(final BeforeBeanDiscovery beforeBeanDiscovery, final BeanManager beanManager)
-    {
-        beforeBeanDiscovery.addAnnotatedType(this.createAnnotatedType(ClasspathResourceProvider.class,beanManager));
-        beforeBeanDiscovery.addAnnotatedType(this.createAnnotatedType(InjectableResourceProducer.class,beanManager));
-        beforeBeanDiscovery.addAnnotatedType(this.createAnnotatedType(FileResourceProvider.class,beanManager));
+public class ResourceLoaderExtension implements Extension {
+    public void addResourceLoaders(final BeforeBeanDiscovery beforeBeanDiscovery, final BeanManager beanManager) {
+        // FIXME Is this still needed?
+        beforeBeanDiscovery.addAnnotatedType(this.createAnnotatedType(ClasspathResourceProvider.class, beanManager), ClasspathResourceProvider.class.getName());
+        beforeBeanDiscovery.addAnnotatedType(this.createAnnotatedType(InjectableResourceProducer.class, beanManager), InjectableResourceProducer.class.getName());
+        beforeBeanDiscovery.addAnnotatedType(this.createAnnotatedType(FileResourceProvider.class, beanManager), FileResourceProvider.class.getName());
     }
 
-    private AnnotatedType<?> createAnnotatedType(final Class<?> clazz, final BeanManager beanManager)
-    {
+    private AnnotatedType<?> createAnnotatedType(final Class<?> clazz, final BeanManager beanManager) {
         return beanManager.createAnnotatedType(clazz);
     }
 }

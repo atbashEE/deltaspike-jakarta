@@ -28,8 +28,10 @@ import java.util.Collections;
 import org.apache.deltaspike.core.api.config.ConfigResolver;
 import org.apache.deltaspike.core.impl.config.PropertyFileConfigSource;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore // Only the subclasses should be executed as test
 public class BaseTestConfigProperty
 {
     protected final static String CONFIG_FILE_NAME = "myconfig.properties";
@@ -41,6 +43,7 @@ public class BaseTestConfigProperty
     @Test
     public void testInjectConfig()
     {
+
         Assert.assertEquals("psAwareStringValue", myBean.getStringConfig());
         Assert.assertEquals("DEFAULT", myBean.getStringConfigWithDefault());
         Assert.assertEquals("stringValue", myBean.getStringConfigWithoutProjectStage());

@@ -38,7 +38,7 @@ public class AccessDeniedExceptionBroadcaster
 
         try
         {
-            this.beanManager.fireEvent(exceptionToCatchEvent);
+            this.beanManager.getEvent().fire(exceptionToCatchEvent);
         }
         catch (AccessDeniedException e)
         {

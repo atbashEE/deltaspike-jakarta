@@ -27,12 +27,14 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import jakarta.inject.Inject;
 
 @RunWith(Arquillian.class)
+@Ignore // FIXME We need fix Arquillian for Weld 5 Or Payara 6
 public class PartialBeanAsAbstractClassTest
 {
     @Inject

@@ -42,7 +42,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * - for request-observer-methods
  * //TODO - for lifecycle callbacks in view-definitions
  *
- * Parameter-type of the observer: {@link javax.faces.event.PhaseEvent}
+ * Parameter-type of the observer: {@link jakarta.faces.event.PhaseEvent}
  */
 public @interface AfterPhase
 {

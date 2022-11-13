@@ -81,7 +81,6 @@ public class ImmutableBeanWrapper<T> extends BaseImmutableBean<T>
      * @param stereotypes the bean's stereotypes
      * @param types       the types of the bean
      * @param alternative whether the bean is an alternative
-     * @param nullable    true if the bean is nullable
      * @param toString    the string which should be returned by #{@link #toString()}
      */
     public ImmutableBeanWrapper(Bean<T> bean,
@@ -91,11 +90,10 @@ public class ImmutableBeanWrapper<T> extends BaseImmutableBean<T>
                                 Set<Class<? extends Annotation>> stereotypes,
                                 Set<Type> types,
                                 boolean alternative,
-                                boolean nullable,
                                 String toString)
     {
         super(bean.getBeanClass(), name, qualifiers, scope, stereotypes,
-                types, alternative, nullable, bean.getInjectionPoints(), toString);
+                types, alternative, bean.getInjectionPoints(), toString);
 
         wrapped = bean;
     }

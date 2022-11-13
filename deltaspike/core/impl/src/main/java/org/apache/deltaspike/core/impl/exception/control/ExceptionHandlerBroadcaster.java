@@ -78,7 +78,7 @@ public class ExceptionHandlerBroadcaster
 
             final ExceptionStackEvent stack = new ExceptionStackEvent(exceptionEventEvent.getException());
 
-            beanManager.fireEvent(stack); // Allow for modifying the exception stack
+            beanManager.getEvent().fire(stack); // Allow for modifying the exception stack
 
         // indentation with 8 for label needed by the current checkstyle rules
         inbound_cause:

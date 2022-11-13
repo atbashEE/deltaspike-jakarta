@@ -18,43 +18,35 @@
  */
 package org.apache.deltaspike.servlet.impl.event;
 
-import java.lang.annotation.Annotation;
-
 import jakarta.enterprise.inject.spi.BeanManager;
-
 import org.apache.deltaspike.core.api.provider.BeanManagerProvider;
 import org.apache.deltaspike.core.spi.activation.Deactivatable;
 import org.apache.deltaspike.core.util.ClassDeactivationUtils;
+
+import java.lang.annotation.Annotation;
 
 /**
  * Base class for classes which send servlet events to the CDI event bus. This class uses {@link BeanManagerProvider} to
  * obtain the BeanManager.
  */
-abstract class EventBroadcaster implements Deactivatable
-{
+abstract class EventBroadcaster implements Deactivatable {
 
     private volatile BeanManager beanManager;
 
     private final boolean activated;
 
-    public EventBroadcaster()
-    {
+    public EventBroadcaster() {
         this.activated = ClassDeactivationUtils.isActivated(getClass());
     }
 
-    protected void fireEvent(Object event, Annotation... qualifier)
-    {
-        getBeanManager().fireEvent(event, qualifier);
+    protected void fireEvent(Object event, Annotation... qualifier) {
+        getBeanManager().getEvent().select(qualifier).fire(event);
     }
 
-    protected BeanManager getBeanManager()
-    {
-        if (beanManager == null)
-        {
-            synchronized (this)
-            {
-                if (beanManager == null)
-                {
+    protected BeanManager getBeanManager() {
+        if (beanManager == null) {
+            synchronized (this) {
+                if (beanManager == null) {
                     beanManager = BeanManagerProvider.getInstance().getBeanManager();
                 }
             }
@@ -63,8 +55,7 @@ abstract class EventBroadcaster implements Deactivatable
         return beanManager;
     }
 
-    protected boolean isActivated()
-    {
+    protected boolean isActivated() {
         return activated;
     }
 

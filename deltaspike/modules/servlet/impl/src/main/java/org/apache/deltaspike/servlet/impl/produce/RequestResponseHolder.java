@@ -63,7 +63,7 @@ class RequestResponseHolder<Type>
             if (instance instanceof ServletRequest)
             {
                 ServletRequest servletRequest = (ServletRequest) instance;
-                if (servletRequest.getAttribute("javax.servlet.forward.request_uri") != null)
+                if (servletRequest.getAttribute("jakarta.servlet.forward.request_uri") != null)
                 {
                     return;
                 }

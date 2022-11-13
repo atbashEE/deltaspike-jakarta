@@ -29,6 +29,7 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -36,6 +37,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 
 @RunWith(Arquillian.class)
+@Ignore // FIXME We need to configure Arquillian for Weld 5 (or Payara 6)
 public class DefaultClassDeactivatorTest extends ClassDeactivationTest
 {
     @Deployment

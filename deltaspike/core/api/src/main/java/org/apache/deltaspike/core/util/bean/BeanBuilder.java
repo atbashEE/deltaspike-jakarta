@@ -19,6 +19,11 @@
 
 package org.apache.deltaspike.core.util.bean;
 
+import jakarta.enterprise.context.Dependent;
+import jakarta.enterprise.inject.Alternative;
+import jakarta.enterprise.inject.Typed;
+import jakarta.enterprise.inject.spi.*;
+import jakarta.inject.Named;
 import org.apache.deltaspike.core.api.literal.AnyLiteral;
 import org.apache.deltaspike.core.api.literal.DefaultLiteral;
 import org.apache.deltaspike.core.util.Annotateds;
@@ -26,24 +31,10 @@ import org.apache.deltaspike.core.util.metadata.builder.ContextualLifecycle;
 import org.apache.deltaspike.core.util.metadata.builder.DelegatingContextualLifecycle;
 import org.apache.deltaspike.core.util.metadata.builder.DummyInjectionTarget;
 
-import jakarta.enterprise.context.Dependent;
-import jakarta.enterprise.inject.Alternative;
-import jakarta.enterprise.inject.Typed;
-import jakarta.enterprise.inject.spi.AnnotatedType;
-import jakarta.enterprise.inject.spi.Bean;
-import jakarta.enterprise.inject.spi.BeanManager;
-import jakarta.enterprise.inject.spi.InjectionPoint;
-import jakarta.enterprise.inject.spi.InjectionTarget;
-import jakarta.inject.Named;
-
 import java.beans.Introspector;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * <p>
@@ -61,8 +52,7 @@ import java.util.Set;
  * It is advised that a new bean builder is instantiated for each bean created.
  * </p>
  */
-public class BeanBuilder<T>
-{
+public class BeanBuilder<T> {
 
     protected final BeanManager beanManager;
 
@@ -74,7 +64,6 @@ public class BeanBuilder<T>
     protected Set<Type> types;
     protected Set<InjectionPoint> injectionPoints;
     protected boolean alternative;
-    protected boolean nullable;
     protected ContextualLifecycle<T> beanLifecycle;
     protected boolean passivationCapable;
     protected String id;
@@ -87,8 +76,7 @@ public class BeanBuilder<T>
      *                    and determining if annotations are qualifiers, scopes or
      *                    stereotypes.
      */
-    public BeanBuilder(BeanManager beanManager)
-    {
+    public BeanBuilder(BeanManager beanManager) {
         this.beanManager = beanManager;
     }
 
@@ -100,7 +88,7 @@ public class BeanBuilder<T>
      * <p/>
      * <p>
      * By default the bean lifecycle will wrap the result of calling
-     * {@link BeanManager#createInjectionTarget(AnnotatedType)}.
+     * {@link BeanManager#getInjectionTargetFactory(AnnotatedType)}.
      * </p>
      * <p/>
      * <p>
@@ -110,63 +98,47 @@ public class BeanBuilder<T>
      *
      * @param type the type to read
      */
-    public BeanBuilder<T> readFromType(AnnotatedType<T> type)
-    {
+    public BeanBuilder<T> readFromType(AnnotatedType<T> type) {
         this.beanClass = type.getJavaClass();
 
-        if (beanLifecycle == null)
-        {
+        if (beanLifecycle == null) {
             setDefaultBeanLifecycle(type);
         }
 
         this.qualifiers = new HashSet<Annotation>();
         this.stereotypes = new HashSet<Class<? extends Annotation>>();
         this.types = new HashSet<Type>();
-        for (Annotation annotation : type.getAnnotations())
-        {
-            if (beanManager.isQualifier(annotation.annotationType()))
-            {
+        for (Annotation annotation : type.getAnnotations()) {
+            if (beanManager.isQualifier(annotation.annotationType())) {
                 this.qualifiers.add(annotation);
-            }
-            else if (beanManager.isScope(annotation.annotationType()))
-            {
+            } else if (beanManager.isScope(annotation.annotationType())) {
                 this.scope = annotation.annotationType();
-            }
-            else if (beanManager.isStereotype(annotation.annotationType()))
-            {
+            } else if (beanManager.isStereotype(annotation.annotationType())) {
                 this.stereotypes.add(annotation.annotationType());
             }
-            if (annotation instanceof Named)
-            {
+            if (annotation instanceof Named) {
                 this.name = ((Named) annotation).value();
-                if (name == null || name.length() == 0)
-                {
+                if (name == null || name.length() == 0) {
                     name = createDefaultBeanName(type);
                 }
             }
-            if (annotation instanceof Alternative)
-            {
+            if (annotation instanceof Alternative) {
                 this.alternative = true;
             }
         }
-        if (type.isAnnotationPresent(Typed.class))
-        {
+        if (type.isAnnotationPresent(Typed.class)) {
             Typed typed = type.getAnnotation(Typed.class);
             this.types.addAll(Arrays.asList(typed.value()));
 
-        }
-        else
-        {
-            for (Class<?> c = type.getJavaClass(); c != Object.class && c != null; c = c.getSuperclass())
-            {
+        } else {
+            for (Class<?> c = type.getJavaClass(); c != Object.class && c != null; c = c.getSuperclass()) {
                 this.types.add(c);
             }
             Collections.addAll(this.types, type.getJavaClass().getInterfaces());
             this.types.add(Object.class);
-        }        
+        }
 
-        if (qualifiers.isEmpty())
-        {
+        if (qualifiers.isEmpty()) {
             qualifiers.add(new DefaultLiteral());
         }
         qualifiers.add(new AnyLiteral());
@@ -175,8 +147,7 @@ public class BeanBuilder<T>
         return this;
     }
 
-    private String createDefaultBeanName(AnnotatedType<T> type)
-    {
+    private String createDefaultBeanName(AnnotatedType<T> type) {
         Class<T> javaClass = type.getJavaClass();
         return Introspector.decapitalize(javaClass.getSimpleName());
     }
@@ -184,17 +155,14 @@ public class BeanBuilder<T>
 
     /**
      * Set the ContextualLifecycle and the InjectionPoints for the AnnotatedType
+     *
      * @param type
      */
-    protected void setDefaultBeanLifecycle(AnnotatedType<T> type)
-    {
+    protected void setDefaultBeanLifecycle(AnnotatedType<T> type) {
         InjectionTarget<T> injectionTarget;
-        if (!type.getJavaClass().isInterface())
-        {
-            injectionTarget = beanManager.createInjectionTarget(type);
-        }
-        else
-        {
+        if (!type.getJavaClass().isInterface()) {
+            injectionTarget = beanManager.getInjectionTargetFactory(type).createInjectionTarget(null);
+        } else {
             injectionTarget = new DummyInjectionTarget<T>();
         }
         this.beanLifecycle = new DelegatingContextualLifecycle<T>(injectionTarget);
@@ -208,17 +176,13 @@ public class BeanBuilder<T>
      *
      * @return the bean
      */
-    public Bean<T> create()
-    {
-        if (!passivationCapable)
-        {
-            return new ImmutableBean<T>(beanClass, name, qualifiers, scope, stereotypes, types, alternative, nullable,
+    public Bean<T> create() {
+        if (!passivationCapable) {
+            return new ImmutableBean<T>(beanClass, name, qualifiers, scope, stereotypes, types, alternative,
                     injectionPoints, toString, beanLifecycle);
-        }
-        else
-        {
+        } else {
             return new ImmutablePassivationCapableBean<T>(beanClass, name, qualifiers, scope, stereotypes, types,
-                    alternative, nullable, injectionPoints, toString, beanLifecycle, id);
+                    alternative, injectionPoints, toString, beanLifecycle, id);
         }
     }
 
@@ -227,8 +191,7 @@ public class BeanBuilder<T>
      *
      * @return the qualifiers current defined
      */
-    public Set<Annotation> getQualifiers()
-    {
+    public Set<Annotation> getQualifiers() {
         return qualifiers;
     }
 
@@ -237,8 +200,7 @@ public class BeanBuilder<T>
      *
      * @param qualifiers the qualifiers to use
      */
-    public BeanBuilder<T> qualifiers(Set<Annotation> qualifiers)
-    {
+    public BeanBuilder<T> qualifiers(Set<Annotation> qualifiers) {
         this.qualifiers = qualifiers;
         return this;
     }
@@ -248,8 +210,7 @@ public class BeanBuilder<T>
      *
      * @param qualifiers the qualifiers to use
      */
-    public BeanBuilder<T> qualifiers(Annotation... qualifiers)
-    {
+    public BeanBuilder<T> qualifiers(Annotation... qualifiers) {
         this.qualifiers = new HashSet<Annotation>(Arrays.asList(qualifiers));
         return this;
     }
@@ -259,8 +220,7 @@ public class BeanBuilder<T>
      *
      * @param qualifier the additional qualifier to use
      */
-    public BeanBuilder<T> addQualifier(Annotation qualifier)
-    {
+    public BeanBuilder<T> addQualifier(Annotation qualifier) {
         this.qualifiers.add(qualifier);
         return this;
     }
@@ -270,8 +230,7 @@ public class BeanBuilder<T>
      *
      * @param qualifiers the additional qualifiers to use
      */
-    public BeanBuilder<T> addQualifiers(Annotation... qualifiers)
-    {
+    public BeanBuilder<T> addQualifiers(Annotation... qualifiers) {
         this.qualifiers.addAll(new HashSet<Annotation>(Arrays.asList(qualifiers)));
         return this;
     }
@@ -281,8 +240,7 @@ public class BeanBuilder<T>
      *
      * @param qualifiers the additional qualifiers to use
      */
-    public BeanBuilder<T> addQualifiers(Collection<Annotation> qualifiers)
-    {
+    public BeanBuilder<T> addQualifiers(Collection<Annotation> qualifiers) {
         this.qualifiers.addAll(qualifiers);
         return this;
     }
@@ -292,8 +250,7 @@ public class BeanBuilder<T>
      *
      * @return the scope currently defined
      */
-    public Class<? extends Annotation> getScope()
-    {
+    public Class<? extends Annotation> getScope() {
         return scope;
     }
 
@@ -302,8 +259,7 @@ public class BeanBuilder<T>
      *
      * @param scope the scope to use
      */
-    public BeanBuilder<T> scope(Class<? extends Annotation> scope)
-    {
+    public BeanBuilder<T> scope(Class<? extends Annotation> scope) {
         this.scope = scope;
         return this;
     }
@@ -313,8 +269,7 @@ public class BeanBuilder<T>
      *
      * @return the stereotypes currently defined
      */
-    public Set<Class<? extends Annotation>> getStereotypes()
-    {
+    public Set<Class<? extends Annotation>> getStereotypes() {
         return stereotypes;
     }
 
@@ -323,8 +278,7 @@ public class BeanBuilder<T>
      *
      * @param stereotypes the stereotypes to use
      */
-    public BeanBuilder<T> stereotypes(Set<Class<? extends Annotation>> stereotypes)
-    {
+    public BeanBuilder<T> stereotypes(Set<Class<? extends Annotation>> stereotypes) {
         this.stereotypes = stereotypes;
         return this;
     }
@@ -334,8 +288,7 @@ public class BeanBuilder<T>
      *
      * @return the type closure currently defined
      */
-    public Set<Type> getTypes()
-    {
+    public Set<Type> getTypes() {
         return types;
     }
 
@@ -344,8 +297,7 @@ public class BeanBuilder<T>
      *
      * @param types the type closure to use
      */
-    public BeanBuilder<T> types(Set<Type> types)
-    {
+    public BeanBuilder<T> types(Set<Type> types) {
         this.types = types;
         return this;
     }
@@ -355,8 +307,7 @@ public class BeanBuilder<T>
      *
      * @param types the type closure to use
      */
-    public BeanBuilder<T> types(Type... types)
-    {
+    public BeanBuilder<T> types(Type... types) {
         this.types = new HashSet<Type>(Arrays.asList(types));
         return this;
     }
@@ -366,8 +317,7 @@ public class BeanBuilder<T>
      *
      * @param type additional type to use
      */
-    public BeanBuilder<T> addType(Type type)
-    {
+    public BeanBuilder<T> addType(Type type) {
         this.types.add(type);
         return this;
     }
@@ -377,8 +327,7 @@ public class BeanBuilder<T>
      *
      * @param types the additional types to use
      */
-    public BeanBuilder<T> addTypes(Type... types)
-    {
+    public BeanBuilder<T> addTypes(Type... types) {
         this.types.addAll(new HashSet<Type>(Arrays.asList(types)));
         return this;
     }
@@ -388,8 +337,7 @@ public class BeanBuilder<T>
      *
      * @param types the additional types to use
      */
-    public BeanBuilder<T> addTypes(Collection<Type> types)
-    {
+    public BeanBuilder<T> addTypes(Collection<Type> types) {
         this.types.addAll(types);
         return this;
     }
@@ -398,10 +346,9 @@ public class BeanBuilder<T>
      * Whether the created bean will be an alternative.
      *
      * @return <code>true</code> if the created bean will be an alternative,
-     *         otherwise <code>false</code>
+     * otherwise <code>false</code>
      */
-    public boolean isAlternative()
-    {
+    public boolean isAlternative() {
         return alternative;
     }
 
@@ -411,32 +358,8 @@ public class BeanBuilder<T>
      * @param alternative <code>true</code> if the created bean should be an
      *                    alternative, otherwise <code>false</code>
      */
-    public BeanBuilder<T> alternative(boolean alternative)
-    {
+    public BeanBuilder<T> alternative(boolean alternative) {
         this.alternative = alternative;
-        return this;
-    }
-
-    /**
-     * Whether the created bean will be nullable.
-     *
-     * @return <code>true</code> if the created bean will be nullable, otherwise
-     *         <code>false</code>
-     */
-    public boolean isNullable()
-    {
-        return nullable;
-    }
-
-    /**
-     * Define that the created bean will (or will not) be nullable.
-     *
-     * @param nullable <code>true</code> if the created bean should be nullable,
-     *                 otherwise <code>false</code>
-     */
-    public BeanBuilder<T> nullable(boolean nullable)
-    {
-        this.nullable = nullable;
         return this;
     }
 
@@ -445,8 +368,7 @@ public class BeanBuilder<T>
      *
      * @return the bean lifecycle currently defined
      */
-    public ContextualLifecycle<T> getBeanLifecycle()
-    {
+    public ContextualLifecycle<T> getBeanLifecycle() {
         return beanLifecycle;
     }
 
@@ -456,8 +378,7 @@ public class BeanBuilder<T>
      * @param beanLifecycle the {@link ContextualLifecycle} to use for bean
      *                      creation.
      */
-    public BeanBuilder<T> beanLifecycle(ContextualLifecycle<T> beanLifecycle)
-    {
+    public BeanBuilder<T> beanLifecycle(ContextualLifecycle<T> beanLifecycle) {
         this.beanLifecycle = beanLifecycle;
         return this;
     }
@@ -467,8 +388,7 @@ public class BeanBuilder<T>
      *
      * @return the bean class currently defined.
      */
-    public Class<?> getBeanClass()
-    {
+    public Class<?> getBeanClass() {
         return beanClass;
     }
 
@@ -477,8 +397,7 @@ public class BeanBuilder<T>
      *
      * @param beanClass the bean class to use
      */
-    public BeanBuilder<T> beanClass(Class<?> beanClass)
-    {
+    public BeanBuilder<T> beanClass(Class<?> beanClass) {
         this.beanClass = beanClass;
         return this;
     }
@@ -489,8 +408,7 @@ public class BeanBuilder<T>
      *
      * @return the bean manager in use
      */
-    public BeanManager getBeanManager()
-    {
+    public BeanManager getBeanManager() {
         return beanManager;
     }
 
@@ -499,8 +417,7 @@ public class BeanBuilder<T>
      *
      * @return the name of the bean or <code>null</code> if the bean has no name
      */
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
@@ -510,8 +427,7 @@ public class BeanBuilder<T>
      * @param name the name of the bean to use or <code>null</code> if the bean
      *             should have no name
      */
-    public BeanBuilder<T> name(String name)
-    {
+    public BeanBuilder<T> name(String name) {
         this.name = name;
         return this;
     }
@@ -520,10 +436,9 @@ public class BeanBuilder<T>
      * Whether the created bean will be passivation capable.
      *
      * @return <code>true</code> if the created bean will be passivation capable,
-     *         otherwise <code>false</code>
+     * otherwise <code>false</code>
      */
-    public boolean isPassivationCapable()
-    {
+    public boolean isPassivationCapable() {
         return passivationCapable;
     }
 
@@ -533,8 +448,7 @@ public class BeanBuilder<T>
      * @param passivationCapable <code>true</code> if the created bean should be
      *                           passivation capable, otherwise <code>false</code>
      */
-    public BeanBuilder<T> passivationCapable(boolean passivationCapable)
-    {
+    public BeanBuilder<T> passivationCapable(boolean passivationCapable) {
         this.passivationCapable = passivationCapable;
         return this;
     }
@@ -544,8 +458,7 @@ public class BeanBuilder<T>
      *
      * @return the id currently defined.
      */
-    public String getId()
-    {
+    public String getId() {
         return id;
     }
 
@@ -554,8 +467,7 @@ public class BeanBuilder<T>
      *
      * @param id the id to use
      */
-    public BeanBuilder<T> id(String id)
-    {
+    public BeanBuilder<T> id(String id) {
         this.id = id;
         return this;
     }
@@ -565,8 +477,7 @@ public class BeanBuilder<T>
      *
      * @return the injection points currently defined.
      */
-    public Set<InjectionPoint> getInjectionPoints()
-    {
+    public Set<InjectionPoint> getInjectionPoints() {
         return injectionPoints;
     }
 
@@ -575,8 +486,7 @@ public class BeanBuilder<T>
      *
      * @param injectionPoints the injection points to use
      */
-    public BeanBuilder<T> injectionPoints(Set<InjectionPoint> injectionPoints)
-    {
+    public BeanBuilder<T> injectionPoints(Set<InjectionPoint> injectionPoints) {
         this.injectionPoints = injectionPoints;
         return this;
     }
@@ -586,8 +496,7 @@ public class BeanBuilder<T>
      *
      * @param toString the string to use
      */
-    public BeanBuilder<T> toString(String toString)
-    {
+    public BeanBuilder<T> toString(String toString) {
         this.toString = toString;
         return this;
     }
@@ -597,8 +506,7 @@ public class BeanBuilder<T>
      *
      * @return the string currently defined
      */
-    public String getToString()
-    {
+    public String getToString() {
         return toString;
     }
 

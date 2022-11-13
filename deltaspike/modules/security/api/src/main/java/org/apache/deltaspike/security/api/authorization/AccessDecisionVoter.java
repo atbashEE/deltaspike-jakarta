@@ -31,13 +31,13 @@ import java.util.Set;
  * A voter has to be used in combination with
  * {@link Secured}.<p/>
  * A voter can use every scope which is active. It's recommended to use
- * {@link javax.enterprise.context.ApplicationScoped} for stateless voters and e.g.
- * {@link javax.enterprise.context.RequestScoped} otherwise.
+ * {@link jakarta.enterprise.context.ApplicationScoped} for stateless voters and e.g.
+ * {@link jakarta.enterprise.context.RequestScoped} otherwise.
  */
 public interface AccessDecisionVoter extends Serializable
 {
     /**
-     * Checks the permission for the given {@link javax.interceptor.InvocationContext}.
+     * Checks the permission for the given {@link jakarta.interceptor.InvocationContext}.
      * If a violation is detected, it should be added to a set which gets returned by the method.
      *
      * @param accessDecisionVoterContext current access-decision-voter-context

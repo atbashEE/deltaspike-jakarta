@@ -27,6 +27,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Ignore;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
@@ -37,6 +38,7 @@ import static org.apache.deltaspike.test.core.api.exclude.ExcludeWarFileTest.get
  */
 @RunWith(Arquillian.class)
 @Category(EnterpriseArchiveProfileCategory.class)
+@Ignore // FIXME We need to configure Arquillian for Weld 5 (or Payara 6)
 public class ExcludeEarFileTest extends ExcludeTest
 {
 

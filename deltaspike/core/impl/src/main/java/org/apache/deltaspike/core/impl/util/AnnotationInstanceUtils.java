@@ -36,7 +36,7 @@ public abstract class AnnotationInstanceUtils
     }
 
     /**
-     * @return a new instance of {@link javax.annotation.Priority} with the given value
+     * @return a new instance of {@link jakarta.annotation.Priority} with the given value
      *         if the annotation-class is available in a cdi 1.1+ based environment, null otherwise
      */
     public static Annotation getPriorityAnnotationInstance(int priorityValue)
@@ -44,11 +44,11 @@ public abstract class AnnotationInstanceUtils
         Annotation priorityAnnotationInstance = null;
 
         Class<? extends Annotation> priorityAnnotationClass =
-            ClassUtils.tryToLoadClassForName("javax.annotation.Priority");
+            ClassUtils.tryToLoadClassForName("jakarta.annotation.Priority");
 
         //check for @Priority and CDI v1.1+
         if (priorityAnnotationClass != null &&
-            ClassUtils.tryToLoadClassForName("javax.enterprise.inject.spi.AfterTypeDiscovery") != null)
+            ClassUtils.tryToLoadClassForName("jakarta.enterprise.inject.spi.AfterTypeDiscovery") != null)
         {
             Map<String, Object> defaultValueMap = new HashMap<String, Object>();
             defaultValueMap.put("value", priorityValue);

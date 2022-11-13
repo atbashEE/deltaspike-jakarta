@@ -57,7 +57,6 @@ public abstract class BaseImmutableBean<T> implements Bean<T>
     private final Set<Class<? extends Annotation>> stereotypes;
     private final Set<Type> types;
     private final boolean alternative;
-    private final boolean nullable;
     private final Set<InjectionPoint> injectionPoints;
     private final String toString;
 
@@ -68,14 +67,13 @@ public abstract class BaseImmutableBean<T> implements Bean<T>
      * @param beanClass       The Bean class, may not be null
      * @param name            The bean name
      * @param qualifiers      The bean's qualifiers, if null, a singleton set of
-     *                        {@link javax.enterprise.inject.Default} is used
+     *                        {@link jakarta.enterprise.inject.Default} is used
      * @param scope           The bean's scope, if null, the default scope of
      *                        {@link Dependent} is used
      * @param stereotypes     The bean's stereotypes, if null, an empty set is used
      * @param types           The bean's types, if null, the beanClass and {@link Object}
      *                        will be used
      * @param alternative     True if the bean is an alternative
-     * @param nullable        True if the bean is nullable
      * @param injectionPoints the bean's injection points, if null an empty set is used
      * @param toString        the string which should be returned by #{@link #toString()}
      * @throws IllegalArgumentException if the beanClass is null
@@ -87,7 +85,6 @@ public abstract class BaseImmutableBean<T> implements Bean<T>
                              Set<Class<? extends Annotation>> stereotypes,
                              Set<Type> types,
                              boolean alternative,
-                             boolean nullable,
                              Set<InjectionPoint> injectionPoints,
                              String toString)
     {
@@ -169,7 +166,6 @@ public abstract class BaseImmutableBean<T> implements Bean<T>
         }
 
         this.alternative = alternative;
-        this.nullable = nullable;
 
         if (toString != null)
         {
@@ -227,12 +223,6 @@ public abstract class BaseImmutableBean<T> implements Bean<T>
     public boolean isAlternative()
     {
         return alternative;
-    }
-
-    @Override
-    public boolean isNullable()
-    {
-        return nullable;
     }
 
     @Override

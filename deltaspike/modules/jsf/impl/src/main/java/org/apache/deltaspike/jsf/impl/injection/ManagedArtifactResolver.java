@@ -33,8 +33,8 @@ import java.util.Set;
 @Typed()
 public abstract class ManagedArtifactResolver
 {
-    public static final String JAVAX_FACES_CONVERT_PACKAGE_NAME = "javax.faces.convert";
-    public static final String JAVAX_FACES_VALIDATOR_PACKAGE_NAME = "javax.faces.validator";
+    public static final String JAVAX_FACES_CONVERT_PACKAGE_NAME = "jakarta.faces.convert";
+    public static final String JAVAX_FACES_VALIDATOR_PACKAGE_NAME = "jakarta.faces.validator";
 
     /**
      * Constructor which prevents the instantiation of this class

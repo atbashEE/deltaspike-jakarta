@@ -72,7 +72,7 @@ public class DeltaSpikeProxyContextualLifecycle<T, H extends InvocationHandler> 
         if (!targetClass.isInterface())
         {
             AnnotatedType<T> annotatedType = beanManager.createAnnotatedType(this.targetClass);
-            this.injectionTarget = beanManager.createInjectionTarget(annotatedType);
+            this.injectionTarget = beanManager.getInjectionTargetFactory(annotatedType).createInjectionTarget(null);
         }
     }
 
